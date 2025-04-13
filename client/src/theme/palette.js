@@ -13,8 +13,8 @@ export default {
     muted: '#9EA0A4'
   },
   default: {
-    light: 'rgba(41, 150, 243, .1)',
-    main: 'rgba(0, 40, 73, .9)',
+    light: 'rgba(4, 134, 248, 0.1)',
+    main: 'rgba(73, 29, 0, 0.9)',
     dark: 'rgb(0, 40, 73)',
     logoBg: 'rgb(51, 51, 51)',
     border: 'rgba(0, 40, 73, .1)',

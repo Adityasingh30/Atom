@@ -1,5 +1,5 @@
 {
-  "name": "cinema-plus",
+  "name": "Atomic",
   "version": "1.0.0",
   "description": "",
   "main": "server/src/index.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/georgesimos/cinema-plus.git"
+    "url": "git+https://github.com/georgesimos/Atomic.git"
   },
   "keywords": [],
-  "author": "George Simos <georgesimos.com>",
+  "author": "Aditya Pratap Singh, Aman Jain, Ayush Jhawar",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/georgesimos/cinema-plus/issues"
+    "url": "https://github.com/georgesimos/Atomic/issues"
   },
-  "homepage": "https://github.com/georgesimos/cinema-plus#readme",
+  "homepage": "https://github.com/georgesimos/Atomic#readme",
   "devDependencies": {
     "eslint": "^6.1.0",
     "eslint-config-airbnb": "^18.0.1",

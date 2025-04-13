@@ -51,15 +51,15 @@ export default {
     contrastText: white
   },
   background: {
-    paper: 'rgb(45, 45, 45)',
-    default: 'rgb(26, 26, 26)',
-    dark: 'rgb(26, 26, 26)'
+    paper: 'rgb(78, 122, 216)',
+    default: 'rgb(32, 34, 62)',
+    dark: 'rgb(92, 92, 132)'
   },
   border: '#DFE3E8',
   divider: '#DFE3E8',
   oxfordBlue: 'rgba(5, 41, 73, 1)',
   prussianBlue: 'rgba(19, 49, 92, 1)',
-  darkCerulean: 'rgba(19, 64, 116, 1)',
+  darkCerulean: 'rgb(29, 67, 110)',
   pewterBlue: 'rgba(141, 169, 196, 1)',
   isabelline: 'rgba(238, 244, 237, 1)'
 };

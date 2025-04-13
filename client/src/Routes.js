@@ -14,6 +14,7 @@ const ShowtimeList = lazy(() => import('./pages/Admin/ShowtimeList'));
 const ReservationList = lazy(() => import('./pages/Admin/ReservationList'));
 const User = lazy(() => import('./pages/Admin/User'));
 const Account = lazy(() => import('./pages/Admin/Account'));
+const AboutUs = lazy(() => import('./pages/Admin/AboutUs'));
 
 // Register - Login
 const Register = lazy(() => import('./pages/Public/Register'));
@@ -126,6 +127,12 @@ const Routes = () => {
             layout={AdminLayout}
             component={Account}
           />
+          <ProtectedRoute
+            exact
+            path="/admin/about_us"
+            layout={AdminLayout}
+            component={AboutUs}  
+        />
           <Route path="*" component={() => '404 NOT FOUND'} />
         </Switch>
       </Router>

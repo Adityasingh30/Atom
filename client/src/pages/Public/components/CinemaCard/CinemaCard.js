@@ -79,9 +79,9 @@ function CinemaCard(props) {
         </Typography>
       </div>
       <div className={classes.stats}>
-        <AttachMoney className={classes.eventIcon} />
+        <span className={classes.eventIcon}>🎟</span> 
         <Typography className={classes.eventText} variant="body2">
-          {cinema.ticketPrice} <span>&euro;</span> per movie
+          {cinema.ticketPrice} <span>&#8377;</span> per movie
         </Typography>
       </div>
       <div className={classes.stats}>

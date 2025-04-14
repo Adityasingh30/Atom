@@ -80,7 +80,10 @@ class User extends Component {
           open={openDialog}
           handleClose={() => toggleUserDialog()}>
           <AddUser
-            selectedUser={users.find(user => user._id === selectedUsers[0])}
+            selectedUser={users.find(user => {
+              console.log('Checking user ID:', user._id);
+              return user._id === selectedUsers[0];
+            })}
             addUser={addUser}
             updateUser={updateUser}
           />

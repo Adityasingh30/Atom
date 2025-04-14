@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { makeStyles } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 import { Paper } from '../../../../components';
-import { EventSeat, AttachMoney } from '@material-ui/icons';
+import { EventSeat } from '@material-ui/icons';
 
 const useStyles = makeStyles(theme => ({
   root: {

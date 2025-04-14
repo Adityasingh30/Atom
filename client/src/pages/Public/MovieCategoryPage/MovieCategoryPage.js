@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { makeStyles, Grid, Typography } from '@material-ui/core';
 import ResponsiveMovieCard from '../components/ResponsiveMovieCard/ResponsiveMovieCard';
 import { getMovies } from '../../../store/actions';
+//import ShowingSlider from '../../../components/ShowingSlider/ShowingSlider';
+
+
 
 const useStyles = makeStyles(theme => ({
   title: {

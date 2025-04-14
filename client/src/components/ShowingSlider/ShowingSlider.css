@@ -1,0 +1,59 @@
+.slick-prev:before,
+.slick-next:before {
+  color: #fff;         /* make arrows white */
+  font-size: 30px;
+}
+
+.slick-prev {
+  left: -35px;
+  z-index: 1;
+}
+
+.slick-next {
+  right: -35px;
+  z-index: 1;
+}
+
+/*Make the posters zoom slightly on hover:*/
+.slider-image {
+    transition: transform 0.3s ease;
+  }
+  
+  .slider-image:hover {
+    transform: scale(1.05);
+  }
+  
+  /* */
+  .slider-image {
+    transition: transform 0.3s ease;
+  }
+  
+  .slider-image:hover {
+    transform: scale(1.05);
+  }
+
+  .slick-prev,
+.slick-next {
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: white;
+  font-size: 20px;
+}
+
+.slick-prev {
+  left: -10px;
+}
+
+.slick-next {
+  right: -10px;
+}

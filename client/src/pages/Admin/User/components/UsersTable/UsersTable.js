@@ -82,6 +82,7 @@ class UsersTable extends Component {
             <TableBody>
               {users
                 .filter(user => {
+                  console.log(user);
                   return user;
                 })
                 .slice(0, rowsPerPage)

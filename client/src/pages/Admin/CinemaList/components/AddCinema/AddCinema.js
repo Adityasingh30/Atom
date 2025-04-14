@@ -67,7 +67,7 @@ class AddCinema extends Component {
   };
 
   handleSeatsChange = (index, value) => {
-    if (value > 10) return;
+    if (value > 50) return;
     const { seats } = this.state;
     seats[index] = Array.from({ length: value }, () => 0);
     this.setState({

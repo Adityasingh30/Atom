@@ -14,13 +14,13 @@ const teamMembers = [
     name: 'Aman Jain',
     rollno: '21ESKIT013',
     skills: 'Backend, Express.js, JWT, API Security',
-    photo: 'https://i.pravatar.cc/150?img=2'
+    photo: 'https://i.imgur.com/0sZBEfQ.jpeg'
   },
   {
     name: 'Ayush Jhawar',
     rollno: '21ESKIT028',
     skills: 'Node.js, React, MongoDB',
-    photo: 'https://i.pravatar.cc/150?img=3'
+    photo: 'https://i.imgur.com/iAOQjWS.jpeg'
   }
 ];
 

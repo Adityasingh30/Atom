@@ -17,11 +17,8 @@ router.post('/movies', auth.enhance, async (req, res) => {
   }
 });
 
-router.get(
-  '/movies/photo/:id',
-  auth.enhance,
-  upload('movies').single('file'),
-  async (req, res, next) => {
+router.post('/movies/photo/:id', upload('movies').single('file'), async (req, res, next) => {
+    console.log("Runnning", req.body)
     const url = `${req.protocol}://${req.get('host')}`;
     const { file } = req;
     const movieId = req.params.id;
@@ -33,7 +30,7 @@ router.get(
       }
       const movie = await Movie.findById(movieId);
       if (!movie) return res.sendStatus(404);
-      movie.image = `${url}/${file.path}`;
+      movie.image = `${url}/${file.path.replace(/\\/g, '/')}`;;
       await movie.save();
       res.send({ movie, file });
     } catch (e) {

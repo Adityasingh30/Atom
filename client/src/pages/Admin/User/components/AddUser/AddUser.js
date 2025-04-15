@@ -57,6 +57,7 @@ class AddUser extends Component {
 
   onUpdateUser = () => {
     const user = { ...this.state };
+    console.log("user -> ", user)
     console.log(this.props.selectedUser);
     this.props.updateUser(user, this.props.selectedUser._id);
   };

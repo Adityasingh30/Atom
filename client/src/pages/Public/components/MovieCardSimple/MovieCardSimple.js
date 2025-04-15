@@ -27,6 +27,7 @@ const useStyles = makeStyles(theme => ({
 const MovieCardSimple = props => {
   const classes = useStyles();
   const { movie } = props;
+  console.log("working -> ", movie.image)
 
   return (
     <Link to={`movie/${movie._id}`} style={{ textDecoration: 'none' }}>
@@ -34,7 +35,7 @@ const MovieCardSimple = props => {
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            image={movie.image}
+            image={movie?.image}
             title={movie.title}
           />
           <CardContent>

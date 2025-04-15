@@ -85,7 +85,7 @@ class UsersTable extends Component {
                   console.log(user);
                   return user;
                 })
-                .slice(0, rowsPerPage)
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map(user => (
                   <TableRow
                     className={classes.tableRow}

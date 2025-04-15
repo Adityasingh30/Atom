@@ -41,10 +41,13 @@ app.use(function(req, res, next) {
   // Pass to next layer of middleware
   next();
 });
-app.use(express.json());
+
+app.use(express.json({ limit: '20mb' }));
+app.use(express.urlencoded({ limit: '20mb', extended: true }));
+
 app.use(userRouter);
-app.use(movieRouter);
 app.use(cinemaRouter);
+app.use(movieRouter);
 app.use(showtimeRouter);
 app.use(reservationRouter);
 app.use(invitationsRouter);
@@ -53,7 +56,7 @@ app.get('/api/test', (req, res) => res.send('Hello World'))
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname + '../../client/build/index.html'));
-});
+// app.get('/*', (req, res) => {
+//   res.sendFile(path.join(__dirname + '../../client/build/index.html'));
+// });
 app.listen(port, () => console.log(`app is running in PORT: ${port}`));

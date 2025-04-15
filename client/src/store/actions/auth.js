@@ -10,11 +10,13 @@ import {
 import { setAlert } from './alert';
 import { setAuthHeaders, setUser, removeUser, isLoggedIn } from '../../utils';
 
+const API_URL = process.env.REACT_APP_API_BASE_URL;
+
 export const uploadImage = (id, image) => async dispatch => {
   try {
     const data = new FormData();
     data.append('file', image);
-    const url = '/users/photo/' + id;
+    const url = `${API_URL}/users/photo/` + id;
     const response = await fetch(url, {
       method: 'POST',
       body: data
@@ -34,7 +36,7 @@ export const uploadImage = (id, image) => async dispatch => {
 // Login user
 export const login = (username, password) => async dispatch => {
   try {
-    const url = '/users/login';
+    const url = `${API_URL}/users/login`;
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -65,7 +67,7 @@ export const facebookLogin = e => async dispatch => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, userID, name })
     };
-    const url = '/users/login/facebook';
+    const url = `${API_URL}/users/login/facebook`;
     const response = await fetch(url, options);
     const responseData = await response.json();
 
@@ -93,7 +95,7 @@ export const googleLogin = ({ profileObj }) => async dispatch => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, googleId, name })
     };
-    const url = '/users/login/google';
+    const url = `${API_URL}/users/login/google`;
     const response = await fetch(url, options);
     const responseData = await response.json();
 
@@ -123,7 +125,7 @@ export const register = ({
   password
 }) => async dispatch => {
   try {
-    const url = '/users';
+    const url = `${API_URL}/users`;
     const body = { name, username, email, phone, password };
     const response = await fetch(url, {
       method: 'POST',
@@ -152,7 +154,7 @@ export const register = ({
 export const loadUser = () => async dispatch => {
   if (!isLoggedIn()) return;
   try {
-    const url = '/users/me';
+    const url = `${API_URL}/users/me`;
     const response = await fetch(url, {
       method: 'GET',
       headers: setAuthHeaders()
@@ -173,7 +175,7 @@ export const loadUser = () => async dispatch => {
 export const logout = () => async dispatch => {
   try {
     const token = localStorage.getItem('jwtToken');
-    const url = '/users/logout';
+    const url = `${API_URL}/users/logout`;
     const response = await fetch(url, {
       method: 'POST',
       headers: {

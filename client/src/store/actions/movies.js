@@ -1,11 +1,13 @@
 import { GET_MOVIES, SELECT_MOVIE,GET_SUGGESTIONS } from '../types';
 import { setAlert } from './alert';
 
+const API_URL = process.env.REACT_APP_API_BASE_URL;
+
 export const uploadMovieImage = (id, image) => async dispatch => {
   try {
     const data = new FormData();
     data.append('file', image);
-    const url = '/movies/photo/' + id;
+    const url = `${API_URL}/movies/photo/` + id;
     const response = await fetch(url, {
       method: 'POST',
       body: data
@@ -24,12 +26,13 @@ export const uploadMovieImage = (id, image) => async dispatch => {
 
 export const getMovies = () => async dispatch => {
   try {
-    const url = '/movies';
+    const url = `${API_URL}/movies`;
     const response = await fetch(url, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     });
     const movies = await response.json();
+    console.log("movies", movies)
     if (response.ok) {
       dispatch({ type: GET_MOVIES, payload: movies });
     }
@@ -45,7 +48,7 @@ export const onSelectMovie = movie => ({
 
 export const getMovie = id => async dispatch => {
   try {
-    const url = '/movies/' + id;
+    const url = `${API_URL}/movies/` + id;
     const response = await fetch(url, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
@@ -61,7 +64,7 @@ export const getMovie = id => async dispatch => {
 
 export const getMovieSuggestion = id => async dispatch => {
   try {
-    const url = '/movies/usermodeling/' + id;
+    const url = `${API_URL}/movies/usermodeling/` + id;
     const response = await fetch(url, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
@@ -78,7 +81,7 @@ export const getMovieSuggestion = id => async dispatch => {
 export const addMovie = (image, newMovie) => async dispatch => {
   try {
     const token = localStorage.getItem('jwtToken');
-    const url = '/movies';
+    const url = `${API_URL}/movies`;
     const response = await fetch(url, {
       method: 'POST',
       headers: {
@@ -101,7 +104,7 @@ export const addMovie = (image, newMovie) => async dispatch => {
 export const updateMovie = (movieId, movie, image) => async dispatch => {
   try {
     const token = localStorage.getItem('jwtToken');
-    const url = '/movies/' + movieId;
+    const url = `${API_URL}/movies/` + movieId;
     const response = await fetch(url, {
       method: 'PUT',
       headers: {
@@ -124,7 +127,7 @@ export const updateMovie = (movieId, movie, image) => async dispatch => {
 export const removeMovie = movieId => async dispatch => {
   try {
     const token = localStorage.getItem('jwtToken');
-    const url = '/movies/' + movieId;
+    const url = `${API_URL}/movies/` + movieId;
     const response = await fetch(url, {
       method: 'DELETE',
       headers: {

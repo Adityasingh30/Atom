@@ -82,7 +82,9 @@ const AboutUs = () => {
 
       <Box className={classes.footer}>
         <Typography variant="body2">
-          © Aditya Pratap Singh, Aman Jain, Ayush Jhawar
+        We are a team of final year engineering students passionate about building practical solutions through technology. Our project, the Online Cinema Hall Ticket Booking System, is designed to simplify the movie ticket booking experience by providing users with a seamless, user-friendly, and efficient platform.
+
+Currently in its development phase, the system includes key features such as a secure login and an intuitive user dashboard. As we continue to enhance its functionality, our goal is to deliver a complete platform that bridges the gap between cinemas and their audiences through digital convenience.
         </Typography>
         <Typography variant="body2">
           Major Project | <span style={{ color: '#00BFFF' }}>2025</span>

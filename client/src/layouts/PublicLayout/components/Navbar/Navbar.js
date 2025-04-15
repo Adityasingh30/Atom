@@ -37,9 +37,15 @@ class Navbar extends Component {
             [classes.navbarColor]: scrollPos > 30
           })}>
           <Link className={classes.logoLink} to="/">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <img
+          src="https://i.imgur.com/lHvt3Kz.jpeg" 
+          alt="Logo"
+          style={{ height: 60, width: 60, objectFit: 'contain' }}
+          />
             <Typography className={classes.logo} variant="h2">
               Atomic
-            </Typography>
+            </Typography></div>
           </Link>
           <div className={classes.navLinks}>
             <Link className={classes.navLink} to="/">

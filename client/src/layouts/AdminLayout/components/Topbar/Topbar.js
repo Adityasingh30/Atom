@@ -43,7 +43,16 @@ class Topbar extends Component {
       <div className={`${classes.root} , ${ToolbarClasses}`}>
         <Toolbar className={classes.toolbar}>
           <div className={classes.brandWrapper}>
-            <div className={classes.logo}>Atomic</div>
+            <div className={classes.logo}>
+            <div className={classes.logo}>
+  <img
+    src="https://i.imgur.com/lHvt3Kz.jpeg"
+    alt="Logo"
+    className={classes.logoImage}
+  />
+  <span>Atomic</span>
+</div></div>
+
             <IconButton
               className={classes.menuButton}
               aria-label="Menu"
@@ -56,13 +65,22 @@ class Topbar extends Component {
             Cinema App
           </NavLink>
 
-          <IconButton
-            className={classes.notificationsButton}
-            onClick={() => console.log('Notification')}>
-            <Badge badgeContent={4} color="primary" variant="dot">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
+          
+          <a
+              href="https://www.thehindubusinessline.com/topic/cinema-industry/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={classes.notificationsButton}
+          >
+                <IconButton>
+                  <Badge badgeContent={4} color="primary" variant="dot">
+                    <NotificationsIcon />
+                  </Badge>
+                </IconButton>
+              </a>
+
+
+          
           <IconButton
             className={classes.signOutButton}
             onClick={this.handleSignOut}>

@@ -31,6 +31,7 @@ export default theme => ({
     fontWeight: 700,
     letterSpacing: 3,
     color: theme.palette.common.white
+    
   },
   title: {
     marginLeft: theme.spacing(3),
@@ -48,5 +49,22 @@ export default theme => ({
   },
   signOutButton: {
     marginLeft: theme.spacing(1)
-  }
+  },
+  
+  logo: {
+    display: 'flex',
+    alignItems: 'center',
+    fontSize: '1.2rem',
+    fontWeight: 600,
+    color: '#fff',
+  },
+  logoImage: {
+    height: 38,
+    width: 38,
+    marginRight: 8,
+    borderRadius: '50%', 
+    verticalAlign: 'middle',
+    objectFit: 'cover',
+  },
+  
 });

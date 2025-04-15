@@ -1,76 +1,69 @@
-import { red, blue, blueGrey, yellow, green } from '@material-ui/core/colors';
-const white = '#FFF';
-const black = '#000';
+import { red, blue, yellow, green } from '@material-ui/core/colors';
+
+const white = '#FFFFFF';
+const black = '#000000';
 
 export default {
   type: 'light',
   common: {
     black,
     white,
-    commonBackground: white,
+    commonBackground: '#F4F6F8',
     contrastText: black,
-    neutral: '#E4E7EB',
-    muted: '#9EA0A4'
+    neutral: '#E0E0E0',
+    muted: '#9E9E9E',
   },
   default: {
-    light: 'rgba(4, 134, 248, 0.1)',
-    main: 'rgba(73, 29, 0, 0.9)',
-    dark: 'rgb(0, 40, 73)',
-    logoBg: 'rgb(51, 51, 51)',
-    border: 'rgba(0, 40, 73, .1)',
-    contrastText: white
+    light: 'rgba(33, 150, 243, 0.1)',
+    main: '#212121',
+    dark: '#121212',
+    logoBg: '#1E1E1E',
+    border: 'rgba(0, 0, 0, 0.1)',
+    contrastText: white,
   },
   primary: {
     contrastText: white,
-    main: '#0767DB',
-    light: '#F6F9FD',
-    dark: '#0B48A0'
+    main: '#1976D2',
+    light: '#63A4FF',
+    dark: '#004BA0',
   },
   secondary: {
     contrastText: white,
-    main: '#7d58ff',
-    light: '',
-    dark: '#37248F'
+    main: '#9C27B0',
+    light: '#D05CE3',
+    dark: '#6A0080',
   },
   success: {
     light: green[300],
     main: green[500],
     dark: green[700],
-    contrastText: white
+    contrastText: white,
   },
   info: {
     light: blue[300],
     main: blue[500],
     dark: blue[700],
-    contrastText: white
+    contrastText: white,
   },
   warning: {
     light: yellow[300],
-    main: yellow[500],
-    dark: yellow[700],
-    contrastText: white
+    main: yellow[700],
+    dark: '#FFA000',
+    contrastText: black,
   },
-  danger: {
+  error: {
     light: red[300],
     main: red[500],
     dark: red[700],
-    contrastText: white
-  },
-  text: {
-    primary: blueGrey[900],
-    secondary: blueGrey[600],
-    link: blue[600]
+    contrastText: white,
   },
   background: {
-    default: '#f8fafc',
-    dark: 'rgb(26, 26, 26)',
-    paper: white
+    default: '#F4F6F8',
+    paper: white,
   },
-  border: '#DFE3E8',
-  divider: '#DFE3E8',
-  oxfordBlue: 'rgba(5, 41, 73, 1)',
-  prussianBlue: 'rgba(19, 49, 92, 1)',
-  darkCerulean: 'rgba(19, 64, 116, 1)',
-  pewterBlue: 'rgba(141, 169, 196, 1)',
-  isabelline: 'rgba(238, 244, 237, 1)'
+  text: {
+    primary: '#212121',
+    secondary: '#757575',
+    link: '#1976D2',
+  },
 };

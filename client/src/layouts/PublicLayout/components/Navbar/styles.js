@@ -39,6 +39,22 @@ export default theme => ({
     marginLeft: 'auto',
     display: 'flex'
   },
+  navLinkOverride: {
+    color: 'black',
+    textDecoration: 'none',
+    fontWeight: 600,
+    fontSize: '16px',
+    padding: '6px 12px',
+    borderRadius: '6px',
+    transition: 'all 0.2s ease-in-out',
+    '&:hover': {
+      backgroundColor: '#f0f0f0',
+      color: '#1a1a1a',
+      textDecoration: 'none',
+      transform: 'translateY(-1px)',
+      boxShadow: '0 1px 4px rgba(0,0,0,0.1)'
+    }
+  },  
   navLink: {
     position: 'relative',
     color: theme.palette.common.white,
@@ -206,7 +222,7 @@ export default theme => ({
       opacity: 0,
       height: 0,
       marginTop: '3px',
-      backgroundColor: 'rgba(255,255,255,0.5)',
+      backgroundColor: 'rgba(18, 16, 16, 0.5)',
       transition: 'all 200ms linear',
       zIndex: 1
     },

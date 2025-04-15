@@ -64,8 +64,6 @@ class Topbar extends Component {
           <NavLink className={classes.title} to="/">
             Cinema App
           </NavLink>
-
-          
           <a
               href="https://www.thehindubusinessline.com/topic/cinema-industry/"
                 target="_blank"

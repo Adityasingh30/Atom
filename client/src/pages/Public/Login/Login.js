@@ -60,7 +60,7 @@ class Login extends Component {
               <ArrowBackIcon />
             </IconButton>
             <Typography className={classes.title}>
-              Welcome Back!!
+              Welcome Back!!!
             </Typography>
           </div>
           <LoginForm redirect />

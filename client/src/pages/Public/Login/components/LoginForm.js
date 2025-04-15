@@ -98,7 +98,7 @@ function LoginForm({ isAuthenticated, user, redirect, login }) {
     <div className={classes.root}>
       <Paper className={classes.paper} elevation={4}>
         <Typography className={classes.title} variant="h4">
-          Welcome Back!!!
+          
         </Typography>
         
 

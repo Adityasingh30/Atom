@@ -68,7 +68,7 @@ class Navbar extends Component {
                 {user && (
                   <ListItem>
                     <Link
-                      className={classes.navLink}
+                      className={classes.navLinkOverrid}
                       to={
                         user.role !== 'guest'
                           ? '/admin/dashboard'
@@ -81,13 +81,13 @@ class Navbar extends Component {
 
                 {isAuth ? (
                   <ListItem>
-                    <Link className={classes.navLink} onClick={logout} to="/">
+                    <Link className={classes.navLinkOverrid} onClick={logout} to="/">
                       Logout
                     </Link>
                   </ListItem>
                 ) : (
                   <ListItem>
-                    <Link className={classes.navLink} to="/login">
+                    <Link className={classes.navLinkOverrid} to="/login">
                       Login
                     </Link>
                   </ListItem>

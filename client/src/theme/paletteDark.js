@@ -15,8 +15,8 @@ export default {
   },
   default: {
     light: 'rgba(41, 150, 243, .1)',  // Soft, light primary
-    main: 'rgba(0, 40, 73, .9)',  // A modern deep blue
-    dark: 'rgb(0, 40, 73)',  // Modern dark blue
+    main: 'rgb(95, 59, 145)',  // A modern deep blue
+    dark: 'rgb(95, 59, 145)',  // Modern dark blue
     logoBg: 'rgb(51, 51, 51)',  // Darker logo background
     border: 'rgba(0, 40, 73, .1)',  // Subtle border
     contrastText: white,
@@ -52,9 +52,9 @@ export default {
     contrastText: white,
   },
   background: {
-    paper: 'rgb(122, 121, 158)', // Clean white for paper
-    default: 'rgb(106, 118, 252)',  // Very light gray background for a modern feel
-    dark: 'rgb(123, 106, 252)',  // Light gray for dark mode
+    paper: 'rgb(203, 217, 226)', // Clean white for paper
+    default: 'rgb(95, 59, 145)',  // Very light gray background for a modern feel
+    dark: 'rgb(95, 59, 145)',  // Light gray for dark mode
   },
   border: '#E0E0E0',  // Lighter border for a soft look
   divider: '#E0E0E0',  // Subtle divider

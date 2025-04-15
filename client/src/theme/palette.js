@@ -58,7 +58,7 @@ export default {
     contrastText: white,
   },
   background: {
-    default: '#F4F6F8',
+    default: 'rgb(95, 59, 145)',
     paper: white,
   },
   text: {

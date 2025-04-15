@@ -19,9 +19,9 @@ const createMailOptions = (data) => {
                 <br/>
               `;
   return {
-    from: 'geosimos91@gmail.com',
+    from: 'aditya.psingh02@gmail.com',
     to,
-    subject: 'Cinema + Invitation',
+    subject: 'Atomic Invitation',
     html: htmlContent,
   };
 };

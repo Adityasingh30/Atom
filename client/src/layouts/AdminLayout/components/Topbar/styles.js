@@ -23,21 +23,34 @@ export default theme => ({
     flexShrink: 0
   },
   logo: {
-    width: 'calc(100% - 160px)',
-    maxWidth: '100%',
-    margin: 'auto',
-    fontFamily: 'Montserrat,sans-serif',
-    fontSize: '22px',
-    fontWeight: 700,
-    letterSpacing: 3,
-    color: theme.palette.common.white
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px', // adds spacing between logo image and text
+    paddingLeft: '16px', // shifts the whole logo block to the right
+    fontFamily: 'Montserrat, sans-serif',
+    fontSize: '24px',
+    fontWeight: 600,
+    letterSpacing: 2,
+    color: theme.palette.common.white,
+    textTransform: 'uppercase',
+    userSelect: 'none'
   },
+  
   title: {
     marginLeft: theme.spacing(3),
     textTransform: 'uppercase',
     textDecoration: 'none',
-    fontSize: '14px',
-    color: theme.palette.common.white
+    fontSize: '24px',
+    fontWeight: 700, // Bold text
+    letterSpacing: '1.5px', // More spacing between letters
+    color: theme.palette.common.black,
+    transition: 'color 0.3s ease, transform 0.3s ease',
+    '&:hover': {
+      color: theme.palette.primary.main, // Changes color on hover
+      transform: 'scale(1.05)' // Slight zoom effect
+    }
+  
+  
   },
   menuButton: {
     color: theme.palette.common.white,
@@ -48,5 +61,15 @@ export default theme => ({
   },
   signOutButton: {
     marginLeft: theme.spacing(1)
-  }
+  },
+  
+  logoImage: {
+    height: 38,
+    width: 38,
+    marginRight: 8,
+    borderRadius: '50%', 
+    verticalAlign: 'middle',
+    objectFit: 'cover',
+  },
+  
 });

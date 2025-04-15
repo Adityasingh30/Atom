@@ -37,9 +37,15 @@ class Navbar extends Component {
             [classes.navbarColor]: scrollPos > 30
           })}>
           <Link className={classes.logoLink} to="/">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <img
+          src="https://i.imgur.com/lHvt3Kz.jpeg" 
+          alt="Logo"
+          style={{ height: 60, width: 60, objectFit: 'contain' }}
+          />
             <Typography className={classes.logo} variant="h2">
-              Cinema +
-            </Typography>
+              Atomic
+            </Typography></div>
           </Link>
           <div className={classes.navLinks}>
             <Link className={classes.navLink} to="/">
@@ -62,7 +68,7 @@ class Navbar extends Component {
                 {user && (
                   <ListItem>
                     <Link
-                      className={classes.navLink}
+                      className={classes.navLinkOverrid}
                       to={
                         user.role !== 'guest'
                           ? '/admin/dashboard'
@@ -75,13 +81,13 @@ class Navbar extends Component {
 
                 {isAuth ? (
                   <ListItem>
-                    <Link className={classes.navLink} onClick={logout} to="/">
+                    <Link className={classes.navLinkOverrid} onClick={logout} to="/">
                       Logout
                     </Link>
                   </ListItem>
                 ) : (
                   <ListItem>
-                    <Link className={classes.navLink} to="/login">
+                    <Link className={classes.navLinkOverrid} to="/login">
                       Login
                     </Link>
                   </ListItem>

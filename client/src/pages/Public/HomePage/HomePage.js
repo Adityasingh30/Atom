@@ -11,6 +11,8 @@ import MovieCarousel from '../components/MovieCarousel/MovieCarousel';
 import MovieBanner from '../components/MovieBanner/MovieBanner';
 import styles from './styles';
 
+import ShowingSlider from '../../../components/ShowingSlider/ShowingSlider';
+
 class HomePage extends Component {
   componentDidMount() {
     const {
@@ -54,7 +56,7 @@ class HomePage extends Component {
           movies={suggested}
         />
         <MovieCarousel
-          carouselClass={classes.carousel}
+          /*carouselClass={classes.carousel}
           title="Now Showing"
           to="/movie/category/nowShowing"
           movies={nowShowing}
@@ -63,8 +65,13 @@ class HomePage extends Component {
           carouselClass={classes.carousel}
           title="Coming Soon"
           to="/movie/category/comingSoon"
-          movies={comingSoon}
+          movies={comingSoon}*/
         />
+
+      <ShowingSlider title="Now Showing" movies={nowShowing} />
+      <ShowingSlider title="Coming Soon" movies={comingSoon} />
+
+
         {false && (
           <Grid container style={{ height: 500 }}>
             <Grid item xs={7} style={{ background: '#131334' }}></Grid>

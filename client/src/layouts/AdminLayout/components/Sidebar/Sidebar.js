@@ -126,19 +126,22 @@ class Sidebar extends Component {
               Support
             </ListSubheader>
           }>
+
           <ListItem
+            activeClassName={classes.activeListItem}
             className={classes.listItem}
-            component="a"
-            href="http://georgesimos.com"
-            target="_blank">
+            component={NavLink}
+            to="/admin/about_us">
             <ListItemIcon className={classes.listItemIcon}>
               <InfoIcon />
             </ListItemIcon>
             <ListItemText
               classes={{ primary: classes.listItemText }}
-              primary="Customer support"
+              primary="About Us"
             />
           </ListItem>
+
+          
         </List>
       </section>
     );

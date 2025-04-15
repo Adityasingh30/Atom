@@ -257,7 +257,7 @@ class AddMovie extends Component {
           </div>
           <div className={classes.field}>
             <FileUpload
-              className={classes.upload}
+              className={classes.text}
               file={image}
               onUpload={event => {
                 const file = event.target.files[0];

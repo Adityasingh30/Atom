@@ -1,57 +1,44 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles, Grid } from '@material-ui/core';
-import { IconButton } from '@material-ui/core';
+import {
+  withStyles,
+  Paper,
+  IconButton,
+  Typography,
+} from '@material-ui/core';
 import { ArrowBack as ArrowBackIcon } from '@material-ui/icons';
 import LoginForm from './components/LoginForm';
 
 const styles = theme => ({
   root: {
-    backgroundColor: theme.palette.background.default,
-    height: '100vh'
-  },
-  grid: {
-    height: '100%'
-  },
-  bgWrapper: {
-    [theme.breakpoints.down('md')]: {
-      display: 'none'
-    }
-  },
-  bg: {
-    backgroundColor: theme.palette.common.neutral,
-    height: '100%',
+    minHeight: '100vh',
+    background: 'linear-gradient(120deg, #1d2b64, #f8cdda)',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundImage: 'url(https://source.unsplash.com/featured/?cinema)',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-    opacity: 0.5
+    padding: theme.spacing(2),
   },
-  content: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column'
+  paperWrapper: {
+    padding: theme.spacing(4),
+    maxWidth: 600,
+    width: '100%',
+    backgroundColor: '#fff',
+    borderRadius: theme.spacing(2),
+    boxShadow: '0 6px 20px rgba(0,0,0,0.1)',
   },
-  contentHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    paddingTop: theme.spacing(5),
-    paddingBototm: theme.spacing(2),
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2)
-  },
-
-  contentBody: {
-    flexGrow: 1,
+  header: {
     display: 'flex',
     alignItems: 'center',
-    [theme.breakpoints.down('md')]: {
-      justifyContent: 'center'
-    }
-  }
+    marginBottom: theme.spacing(3),
+  },
+  backButton: {
+    marginRight: theme.spacing(1),
+    color: theme.palette.primary.main,
+  },
+  title: {
+    fontWeight: 700,
+    fontSize: '1.5rem',
+  },
 });
 
 class Login extends Component {
@@ -62,34 +49,30 @@ class Login extends Component {
 
   render() {
     const { classes } = this.props;
+
     return (
       <div className={classes.root}>
-        <Grid className={classes.grid} container>
-          <Grid className={classes.bgWrapper} item lg={5}>
-            <div className={classes.bg} />
-          </Grid>
-          <Grid className={classes.content} item lg={7} xs={12}>
-            <div className={classes.contentHeader}>
-              <IconButton
-                className={classes.backButton}
-                onClick={this.handleBack}>
-                <ArrowBackIcon />
-              </IconButton>
-            </div>
-            <div className={classes.contentBody}>
-              <LoginForm redirect />
-            </div>
-          </Grid>
-        </Grid>
+        <Paper className={classes.paperWrapper}>
+          <div className={classes.header}>
+            <IconButton
+              className={classes.backButton}
+              onClick={this.handleBack}>
+              <ArrowBackIcon />
+            </IconButton>
+            <Typography className={classes.title}>
+              Welcome Back!!!
+            </Typography>
+          </div>
+          <LoginForm redirect />
+        </Paper>
       </div>
     );
   }
 }
 
 Login.propTypes = {
-  className: PropTypes.string,
   classes: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Login);

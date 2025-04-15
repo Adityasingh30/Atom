@@ -8,12 +8,12 @@ export default function Footer() {
     <div className={classes.root}>
       <Divider />
       <Typography className={classes.copyright} variant="body1">
-        &copy; George Simos. 2020
+        &copy;Aditya Pratap Singh, Aman Jain, Ayush Jhawar
       </Typography>
       <Typography variant="caption">
-        Crafted with love |{' '}
-        <Link href="http://georgesimos.com/" target="_blank" rel="noopener">
-          George Simos
+        Major Project |{' '}
+        <Link href="" target="_blank" rel="noopener">
+          2025
         </Link>
       </Typography>
     </div>

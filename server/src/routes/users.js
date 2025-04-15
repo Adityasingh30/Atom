@@ -202,8 +202,8 @@ router.patch('/users/:id', auth.enhance, async (req, res) => {
     const user = await User.findById(_id);
     updates.forEach((update) => (user[update] = req.body[update]));
     await user.save();
-
     if (!user) return res.sendStatus(404);
+    console.log(user);
     res.send(user);
   } catch (e) {
     res.status(400).send(e);

@@ -10,7 +10,6 @@ import {
 import { setAlert } from './alert';
 import { setAuthHeaders, setUser, removeUser, isLoggedIn } from '../../utils';
 
-
 export const uploadImage = (id, image) => async dispatch => {
   try {
     const data = new FormData();

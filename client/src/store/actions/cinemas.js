@@ -1,13 +1,11 @@
 import { GET_CINEMAS, GET_CINEMA } from '../types';
 import { setAlert } from './alert';
 
-const API_URL = process.env.REACT_APP_API_BASE_URL;
-
 export const uploadCinemaImage = (id, image) => async dispatch => {
   try {
     const data = new FormData();
     data.append('file', image);
-    const url = `${API_URL}/cinemas/photo/` + id;
+    const url = `/cinemas/photo/` + id;
     const response = await fetch(url, {
       method: 'POST',
       body: data
@@ -26,7 +24,7 @@ export const uploadCinemaImage = (id, image) => async dispatch => {
 
 export const getCinemas = () => async dispatch => {
   try {
-    const url = `${API_URL}/cinemas`;
+    const url = `/cinemas`;
     const response = await fetch(url, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
@@ -42,7 +40,7 @@ export const getCinemas = () => async dispatch => {
 
 export const getCinema = id => async dispatch => {
   try {
-    const url = `${API_URL}/cinemas/` + id;
+    const url = `/cinemas/` + id;
     const response = await fetch(url, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
@@ -59,7 +57,7 @@ export const getCinema = id => async dispatch => {
 export const createCinemas = (image, newCinema) => async dispatch => {
   try {
     const token = localStorage.getItem('jwtToken');
-    const url = `${API_URL}/cinemas`;
+    const url = `/cinemas`;
     const response = await fetch(url, {
       method: 'POST',
       headers: {
@@ -87,7 +85,7 @@ export const createCinemas = (image, newCinema) => async dispatch => {
 export const updateCinemas = (image, cinema, id) => async dispatch => {
   try {
     const token = localStorage.getItem('jwtToken');
-    const url = `${API_URL}/cinemas/` + id;
+    const url = `/cinemas/` + id;
     const response = await fetch(url, {
       method: 'PATCH',
       headers: {
@@ -113,7 +111,7 @@ export const updateCinemas = (image, cinema, id) => async dispatch => {
 export const removeCinemas = id => async dispatch => {
   try {
     const token = localStorage.getItem('jwtToken');
-    const url = `${API_URL}/cinemas/` + id;
+    const url = `/cinemas/` + id;
     const response = await fetch(url, {
       method: 'DELETE',
       headers: {

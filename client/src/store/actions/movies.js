@@ -24,7 +24,7 @@ export const uploadMovieImage = (id, image) => async dispatch => {
 
 export const getMovies = () => async dispatch => {
   try {
-    const url = `${API_URL}/movies`;
+    const url = `/movies`;
     const response = await fetch(url, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }

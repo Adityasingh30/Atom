@@ -10,8 +10,6 @@ import {
 
 import { setAlert } from './alert';
 
-console.log(API_URL)
-
 export const toggleUserDialog = () => ({ type: TOGGLE_USER_DIALOG });
 
 export const selectUser = user => ({

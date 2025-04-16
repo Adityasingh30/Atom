@@ -16,7 +16,6 @@ import 'typeface-montserrat';
 import { CssBaseline } from '@material-ui/core';
 class App extends Component {
   componentDidMount() {
-    console.log(process.env.REACT_APP_API_BASE_URL);
     store.dispatch(loadUser());
   }
   render() {

@@ -136,7 +136,7 @@ export const removeCinemas = id => async dispatch => {
 
 export const getCinemasUserModeling = username => async dispatch => {
   try {
-    const url = `${API_URL}/cinemas/usermodeling/` + username;
+    const url = `/cinemas/usermodeling/` + username;
     const response = await fetch(url, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }

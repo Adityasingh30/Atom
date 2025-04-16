@@ -11,8 +11,6 @@ import {
   SET_QR_CODE
 } from '../types';
 
-const API_URL = process.env.REACT_APP_API_BASE_URL;
-
 export const setSelectedSeats = seats => ({
   type: SET_SELECTED_SEATS,
   payload: seats

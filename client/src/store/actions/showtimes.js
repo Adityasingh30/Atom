@@ -7,8 +7,6 @@ import {
 } from '../types';
 import { setAlert } from './alert';
 
-const API_URL = process.env.REACT_APP_API_BASE_URL;
-
 export const toggleDialog = () => ({ type: TOGGLE_DIALOG });
 
 export const selectShowtime = showtime => ({
@@ -21,7 +19,7 @@ export const selectAllShowtimes = () => ({ type: SELECT_ALL_SHOWTIMES });
 export const getShowtimes = () => async dispatch => {
   try {
     const token = localStorage.getItem('jwtToken');
-    const url = `${API_URL}/showtimes`;
+    const url = `/showtimes`;
     const response = await fetch(url, {
       method: 'GET',
       headers: {
@@ -40,7 +38,7 @@ export const getShowtimes = () => async dispatch => {
 export const addShowtime = showtime => async dispatch => {
   try {
     const token = localStorage.getItem('jwtToken');
-    const url = `${API_URL}/showtimes/`;
+    const url = `/showtimes/`;
     const response = await fetch(url, {
       method: 'POST',
       headers: {
@@ -65,7 +63,7 @@ export const addShowtime = showtime => async dispatch => {
 export const updateShowtime = (showtime, id) => async dispatch => {
   try {
     const token = localStorage.getItem('jwtToken');
-    const url = `${API_URL}/showtimes/` + id;
+    const url = `/showtimes/` + id;
     const response = await fetch(url, {
       method: 'PATCH',
       headers: {
@@ -90,7 +88,7 @@ export const updateShowtime = (showtime, id) => async dispatch => {
 export const deleteShowtime = id => async dispatch => {
   try {
     const token = localStorage.getItem('jwtToken');
-    const url = `${API_URL}/showtimes/` + id;
+    const url = `/showtimes/` + id;
     const response = await fetch(url, {
       method: 'DELETE',
       headers: {

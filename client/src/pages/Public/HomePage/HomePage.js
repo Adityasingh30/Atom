@@ -47,22 +47,23 @@ class HomePage extends Component {
           {/* Movie Banner */}
           <Fade in timeout={1000}>
             <Box>
-              <MovieBanner movie={randomMovie} height="85vh" />
+              <MovieBanner movie={randomMovie} height="100vh" />
             </Box>
           </Fade>
 
           {/* Spacer */}
-          <Box mt={6} />
+          <Box mt={0} />
 
           {/* Suggested Movies Section */}
-          <Box py={5} bgcolor="#f5f5f5">
+          <Box py={5} bgcolor="#d5dbdb">
             <Typography variant="h4" align="center" gutterBottom>
-              Suggested for You
+              
             </Typography>
 
             {suggested?.length ? (
               <MovieCarousel
                 carouselClass={classes.carousel}
+                title='Suggested for You'
                 movies={suggested}
               />
             ) : (
@@ -77,7 +78,7 @@ class HomePage extends Component {
           {/* Now Showing Section */}
           <Box py={5}>
             <Typography variant="h4" align="center" gutterBottom>
-              Now Showing
+              
             </Typography>
             <MovieCarousel
               carouselClass={classes.carousel}
@@ -89,9 +90,9 @@ class HomePage extends Component {
           </Box>
 
           {/* Coming Soon Section */}
-          <Box py={5} bgcolor="#f5f5f5">
+          <Box py={5} bgcolor="#d5dbdb">
             <Typography variant="h4" align="center" gutterBottom>
-              Coming Soon
+             
             </Typography>
             <MovieCarousel
               carouselClass={classes.carousel}
@@ -103,7 +104,7 @@ class HomePage extends Component {
           </Box>
 
           {/* Feature Grid Section */}
-          <Box py={8}>
+          <Box py={5}>
             <Grid container style={{ height: 500 }}>
               <Grid
                 item
@@ -132,8 +133,8 @@ class HomePage extends Component {
                 xs={12}
                 md={5}
                 style={{
-                  background: '#010025',
-                  backgroundImage: 'url(https://images.unsplash.com/photo-1598899134739-241d2f7f67fc)',
+                 // background: '#010025',
+                  backgroundImage: 'url(https://images.unsplash.com/photo-1745232997474-3a066feac313?q=80&w=2060&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)',
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                 }}

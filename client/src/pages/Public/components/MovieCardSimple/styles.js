@@ -19,7 +19,7 @@ export default theme => ({
   },
   body: {
     height: '20%',
-    color: theme.palette.common.white,
+    color: '#2D1201F2',
     padding: '15px',
     whiteSpace: 'normal'
   }

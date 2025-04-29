@@ -55,7 +55,7 @@ function MovieCarousel({ carouselClass, movies = [], title, to = null, autoplay 
   return (
     <div className={carouselClass}>
       <div className={classes.container}>
-        <Typography className={classes.h2} variant="h2" color="inherit">
+        <Typography className={classes.h2} variant="h2" style={{ color: '#2D120180'}}>
           {title}
         </Typography>
         {to==null? null

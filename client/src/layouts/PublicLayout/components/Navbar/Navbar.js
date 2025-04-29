@@ -60,6 +60,9 @@ class Navbar extends Component {
             <Link className={classes.navLink} to="/cinemas">
               Cinemas
             </Link>
+            <Link className={classes.navLink} to="/Public/AboutUs">
+              About Us
+            </Link>
           </div>
 
           <div className={classes.navAccount}>
@@ -148,6 +151,11 @@ class Navbar extends Component {
               <li className={classes.innerNavListItem}>
                 <Link className={classes.innerNavLink} to="/cinemas">
                   Cinemas
+                </Link>
+              </li>
+              <li className={classes.innerNavListItem}>
+                <Link className={classes.innerNavLink} to="/Public/AboutUs">
+                  About Us
                 </Link>
               </li>
             </ul>

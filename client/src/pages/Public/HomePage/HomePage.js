@@ -1,12 +1,8 @@
 import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withStyles, Box, Grid } from '@material-ui/core';
-import {
-  getMovies,
-  getShowtimes,
-  getMovieSuggestion
-} from '../../../store/actions';
+import { withStyles, Box, Grid, Typography, Fade, Grow } from '@material-ui/core';
+import { getMovies, getShowtimes, getMovieSuggestion } from '../../../store/actions';
 import MovieCarousel from '../components/MovieCarousel/MovieCarousel';
 import MovieBanner from '../components/MovieBanner/MovieBanner';
 import styles from './styles';
@@ -22,10 +18,10 @@ class HomePage extends Component {
       getMovieSuggestion,
       user
     } = this.props;
-    if (!movies.length) getMovies();
-    if (!showtimes.length) getShowtimes();
-    if (user) {
-      if (!suggested.length) getMovieSuggestion(user.username);
+    if (!movies?.length) getMovies();
+    if (!showtimes?.length) getShowtimes();
+    if (user?.username && !suggested.length) {
+      getMovieSuggestion(user.username);
     }
   }
 
@@ -44,35 +40,108 @@ class HomePage extends Component {
       nowShowing,
       suggested
     } = this.props;
-    return (
-      <Fragment>
-        <MovieBanner movie={randomMovie} height="85vh" />
-        <Box height={60} />
-        <MovieCarousel
-          carouselClass={classes.carousel}
-          title="Suggested for you"
-          movies={suggested}
-        />
-        <MovieCarousel
-          carouselClass={classes.carousel}
-          title="Now Showing"
-          to="/movie/category/nowShowing"
-          movies={nowShowing}
-        />
-        <MovieCarousel
-          carouselClass={classes.carousel}
-          title="Coming Soon"
-          to="/movie/category/comingSoon"
-          movies={comingSoon}
-        />
 
-        {false && (
-          <Grid container style={{ height: 500 }}>
-            <Grid item xs={7} style={{ background: '#131334' }}></Grid>
-            <Grid item xs={5} style={{ background: '#010025' }}></Grid>
-          </Grid>
-        )}
-      </Fragment>
+    return (
+      <Grow in timeout={800}>
+        <Fragment>
+          {/* Movie Banner */}
+          <Fade in timeout={1000}>
+            <Box>
+              <MovieBanner movie={randomMovie} height="85vh" />
+            </Box>
+          </Fade>
+
+          {/* Spacer */}
+          <Box mt={6} />
+
+          {/* Suggested Movies Section */}
+          <Box py={5} bgcolor="#f5f5f5">
+            <Typography variant="h4" align="center" gutterBottom>
+              Suggested for You
+            </Typography>
+
+            {suggested?.length ? (
+              <MovieCarousel
+                carouselClass={classes.carousel}
+                movies={suggested}
+              />
+            ) : (
+              <Box textAlign="center" mt={4}>
+                <Typography variant="subtitle1" color="textSecondary">
+                  No suggestions yet. Watch more movies to get personalized recommendations!
+                </Typography>
+              </Box>
+            )}
+          </Box>
+
+          {/* Now Showing Section */}
+          <Box py={5}>
+            <Typography variant="h4" align="center" gutterBottom>
+              Now Showing
+            </Typography>
+            <MovieCarousel
+              carouselClass={classes.carousel}
+              title="Now Showing"
+              to="/movie/category/nowShowing"
+              movies={nowShowing}
+              autoplay
+            />
+          </Box>
+
+          {/* Coming Soon Section */}
+          <Box py={5} bgcolor="#f5f5f5">
+            <Typography variant="h4" align="center" gutterBottom>
+              Coming Soon
+            </Typography>
+            <MovieCarousel
+              carouselClass={classes.carousel}
+              title="Coming Soon"
+              to="/movie/category/comingSoon"
+              movies={comingSoon}
+              autoplay
+            />
+          </Box>
+
+          {/* Feature Grid Section */}
+          <Box py={8}>
+            <Grid container style={{ height: 500 }}>
+              <Grid
+                item
+                xs={12}
+                md={7}
+                style={{
+                  background: '#131334',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  padding: '2rem',
+                  color: '#fff',
+                  textAlign: 'center',
+                }}
+              >
+                <Typography variant="h3" gutterBottom>
+                  Join the Ultimate Movie Experience
+                </Typography>
+                <Typography variant="h6" color="inherit">
+                  Book your tickets, rate your favorites, and get exclusive rewards!
+                </Typography>
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                md={5}
+                style={{
+                  background: '#010025',
+                  backgroundImage: 'url(https://images.unsplash.com/photo-1598899134739-241d2f7f67fc)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              />
+            </Grid>
+          </Box>
+        </Fragment>
+      </Grow>
     );
   }
 }
@@ -82,7 +151,7 @@ HomePage.propTypes = {
   classes: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   movies: PropTypes.array.isRequired,
-  latestMovies: PropTypes.array.isRequired
+  latestMovies: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = ({ movieState, showtimeState, authState }) => ({
@@ -93,7 +162,7 @@ const mapStateToProps = ({ movieState, showtimeState, authState }) => ({
   nowShowing: movieState.nowShowing,
   showtimes: showtimeState.showtimes,
   suggested: movieState.suggested,
-  user: authState.user
+  user: authState.user,
 });
 
 const mapDispatchToProps = { getMovies, getShowtimes, getMovieSuggestion };

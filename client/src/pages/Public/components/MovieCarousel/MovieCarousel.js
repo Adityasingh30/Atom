@@ -31,7 +31,7 @@ function PrevArrow(props) {
   );
 }
 
-function MovieCarousel({ carouselClass, movies = [], title, to = null }) {
+function MovieCarousel({ carouselClass, movies = [], title, to = null, autoplay = false }) {
   const classes = useStyles();
   const settings = {
     centerMode: true,
@@ -41,27 +41,16 @@ function MovieCarousel({ carouselClass, movies = [], title, to = null }) {
     swipeToSlide: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    autoplay: autoplay,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
     responsive: [
-      {
-        breakpoint: 1600,
-        settings: {
-          slidesToShow: 3
-        }
-      },
-      {
-        breakpoint: 1250,
-        settings: {
-          slidesToShow: 2
-        }
-      },
-      {
-        breakpoint: 750,
-        settings: {
-          slidesToShow: 1
-        }
-      }
+      { breakpoint: 1600, settings: { slidesToShow: 3 } },
+      { breakpoint: 1250, settings: { slidesToShow: 2 } },
+      { breakpoint: 750, settings: { slidesToShow: 1 } }
     ]
   };
+
   if (!movies.length) return null;
   return (
     <div className={carouselClass}>

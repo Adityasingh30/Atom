@@ -12,9 +12,9 @@ const ShowingSlider = ({ title, movies }) => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 2000,
-    pauseOnHover: true,
+    pauseOnHover: false,
   };
 
   return (

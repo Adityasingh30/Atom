@@ -12,11 +12,13 @@ export default theme => ({
     transform: 'translate3d(0,0,0)',
     backfaceVisibility: 'hidden',
     zIndex: 999,
-    transition: 'all 300ms ease-in'
+    transition: 'all 300ms ease-in',
+    background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
+    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
   },
   navbarColor: {
     background: theme.palette.background.dark,
-    transition: 'all 200ms ease-out'
+    transition: 'all 200ms ease-out',
   },
   logoLink: {
     display: 'inline-block',
@@ -26,18 +28,26 @@ export default theme => ({
     fontSize: '1.5rem',
     lineHeight: 'inherit',
     whiteSpace: 'nowrap',
-    textDecoration: 'none'
+    textDecoration: 'none',
+    '&:hover': {
+      transform: 'scale(1.1)',
+      transition: 'transform 0.3s ease-in-out',
+    }
   },
   logo: {
     maxHeight: '2.4rem',
     width: 'auto',
     fontSize: '2rem',
     letterSpacing: '1px',
-    color: theme.palette.common.white
+    color: theme.palette.common.white,
+    transition: 'color 0.3s ease',
+    '&:hover': {
+      color: theme.palette.primary.light,
+    }
   },
   navLinks: {
     marginLeft: 'auto',
-    display: 'flex'
+    display: 'flex',
   },
   navLinkOverride: {
     color: 'black',
@@ -47,14 +57,15 @@ export default theme => ({
     padding: '6px 12px',
     borderRadius: '6px',
     transition: 'all 0.2s ease-in-out',
+    boxShadow: '0 1px 4px rgba(0,0,0,0.1)',
     '&:hover': {
       backgroundColor: '#f0f0f0',
       color: '#1a1a1a',
       textDecoration: 'none',
       transform: 'translateY(-1px)',
-      boxShadow: '0 1px 4px rgba(0,0,0,0.1)'
+      boxShadow: '0 3px 6px rgba(0,0,0,0.2)',
     }
-  },  
+  },
   navLink: {
     position: 'relative',
     color: theme.palette.common.white,
@@ -65,6 +76,11 @@ export default theme => ({
     cursor: 'pointer',
     textDecoration: 'none',
     zIndex: 2,
+    transition: 'color 0.3s ease, transform 0.2s ease',
+    '&:hover': {
+      color: theme.palette.primary.light,
+      transform: 'scale(1.05)',
+    },
     '&:after': {
       content: '""',
       position: 'absolute',
@@ -75,11 +91,11 @@ export default theme => ({
       height: 0,
       backgroundColor: 'rgba(255,255,255,0.5)',
       transition: 'all 200ms linear',
-      zIndex: 1
+      zIndex: 1,
     },
     '&:hover:after': {
       opacity: 1,
-      height: '9px'
+      height: '9px',
     }
   },
   navAccount: { marginLeft: 'auto', marginRight: theme.spacing(3) },
@@ -92,8 +108,11 @@ export default theme => ({
     zIndex: 2,
     cursor: 'pointer',
     '&:hover $navIconLine__left, &:hover $navIconLine__right': {
-      width: '30px'
-    }
+      width: '30px',
+    },
+    '&:active': {
+      transform: 'scale(0.9)',
+    },
   },
   navIconLine: {
     height: '2px',
@@ -101,17 +120,16 @@ export default theme => ({
     display: 'block',
     backgroundColor: theme.palette.common.white,
     marginBottom: '7px',
-    transition: ' transform .2s ease, background-color .5s ease'
+    transition: 'transform .2s ease, background-color .5s ease',
   },
   navIconLine__left: {
     width: '20px',
-    transition: 'all 200ms linear'
+    transition: 'all 200ms linear',
   },
   navIconLine__right: {
     width: '20px',
-    transition: 'all 200ms linear'
+    transition: 'all 200ms linear',
   },
-
   nav: {
     display: 'flex',
     position: 'fixed',
@@ -127,17 +145,17 @@ export default theme => ({
       position: 'fixed',
       width: '100vw',
       height: '100vh',
-      background: 'rgba(255, 255, 255, 0.1)',
+      background: 'rgba(0, 0, 0, 0.6)',
       zIndex: '-1',
       transition: 'transform cubic-bezier(0.77, 0, 0.175, 1) 0.8s',
-      transform: 'translateX(0%) translateY(-100%)'
+      transform: 'translateX(0%) translateY(-100%)',
     },
     '&:before': {
       background: theme.palette.common.black,
-      transitionDelay: '0s'
+      transitionDelay: '0s',
     },
     '&:after': {
-      transitionDelay: '.1s'
+      transitionDelay: '.1s',
     }
   },
   navActive: {
@@ -145,25 +163,25 @@ export default theme => ({
     zIndex: 9,
     '&:before': {
       transitionDelay: '0s',
-      transform: 'translateX(0%) translateY(0%)'
+      transform: 'translateX(0%) translateY(0%)',
     },
     '&:after': {
       transitionDelay: '.1s',
-      transform: 'translateX(0%) translateY(0%)'
+      transform: 'translateX(0%) translateY(0%)',
     },
     '& $navContent': {
-      visibility: 'visible'
+      visibility: 'visible',
     },
     '& $navContent $currentPageShadow': {
       transitionDelay: '.5s',
       opacity: 0.03,
-      marginTop: '0'
+      marginTop: '0',
     },
     '& $navContent $innerNavListItem': {
       transitionDelay: '.5s',
       opacity: 1,
       transform: 'translateX(0%)',
-      transition: 'opacity .3s ease, transform .3s ease, color .3s ease'
+      transition: 'opacity .3s ease, transform .3s ease, color .3s ease',
     }
   },
   navContent: {
@@ -171,7 +189,7 @@ export default theme => ({
     visibility: 'hidden',
     top: '50%',
     transform: 'translate(0%, -50%)',
-    width: '100%'
+    width: '100%',
   },
   currentPageShadow: {
     position: 'absolute',
@@ -184,13 +202,13 @@ export default theme => ({
     marginTop: '25px',
     color: '#fff',
     opacity: 0,
-    transition: 'all 300ms linear'
+    transition: 'all 300ms linear',
   },
   innerNav: {
     position: 'relative',
     padding: 0,
     margin: 0,
-    zIndex: 2
+    zIndex: 2,
   },
   innerNavListItem: {
     opacity: 0,
@@ -201,7 +219,7 @@ export default theme => ({
     lineHeight: '1.05',
     letterSpacing: '3px',
     transform: 'translate(0%, 100%)',
-    transition: 'opacity .2s ease, transform .3s ease'
+    transition: 'opacity .2s ease, transform .3s ease',
   },
   innerNavLink: {
     position: 'relative',
@@ -213,6 +231,11 @@ export default theme => ({
     cursor: 'pointer',
     textDecoration: 'none',
     zIndex: 2,
+    transition: 'color 0.3s ease, transform 0.2s ease',
+    '&:hover': {
+      color: theme.palette.primary.light,
+      transform: 'scale(1.1)',
+    },
     '&:after': {
       content: '""',
       position: 'absolute',
@@ -224,15 +247,15 @@ export default theme => ({
       marginTop: '3px',
       backgroundColor: 'rgba(18, 16, 16, 0.5)',
       transition: 'all 200ms linear',
-      zIndex: 1
+      zIndex: 1,
     },
     '&:hover:after': {
       opacity: 1,
-      height: 15
+      height: '5px',
     }
   },
   [theme.breakpoints.down('sm')]: {
     navIcon: { display: 'block' },
-    navLinks: { display: 'none' }
+    navLinks: { display: 'none' },
   }
 });

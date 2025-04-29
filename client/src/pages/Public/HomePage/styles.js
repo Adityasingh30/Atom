@@ -23,6 +23,7 @@ export default (theme) => ({
   banner: {
     position: 'relative',
     height: '85vh',
+    width: '100%',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
@@ -37,4 +38,18 @@ export default (theme) => ({
       zIndex: 1,
     },
   },
+  bannerSlider: {
+    position: 'relative',
+    height: '75vh', // match the height of banner
+    overflow: 'hidden',
+    zIndex: 0,
+    '& .slick-slide': {
+      padding: '0 15px'
+    },
+    '& .slick-list': {
+      margin: '0 -10px'
+    }
+  }
+  
+  
 });

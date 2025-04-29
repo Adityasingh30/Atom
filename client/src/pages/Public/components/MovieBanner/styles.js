@@ -1,21 +1,27 @@
+import color from "@material-ui/core/colors/amber";
+
 export default theme => ({
   movieHero: {
     position: 'relative',
-    height: props => (props.height ? props.height : '100%'),
+    height: '75vh', // for full-screen banner
     width: '100%',
+    zIndex: 0,
     color: theme.palette.common.white,
-    backgroundColor: theme.palette.background.dark
+    backgroundColor: theme.palette.background.dark,
+    paddingTop: theme.spacing(8) // match your header height
   },
-  blurBackground: {
-    position: 'absolute',
-    top: 0,
-    zIndex: 1,
-    height: '100%',
-    right: 0,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    width: '100%'
-  },
+blurBackground: {
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  zIndex: 1,
+  height: '100%',
+  width: '80%',
+  backgroundSize: '60% 100%',  // 👈 shows full image
+  backgroundPosition: 'right',
+  backgroundRepeat: 'no-repeat',
+  backgroundColor: theme.palette.background.dark // fill empty areas
+} ,
   infoSection: {
     position: 'relative',
     padding: theme.spacing(3),
@@ -92,6 +98,8 @@ export default theme => ({
   button: {
     width: 200,
     height: 70,
+    backgroundColor: '#CF0F47',
+    color: '#fffff',
     borderRadius: 0,
     zIndex: 2
   },

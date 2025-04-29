@@ -1,8 +1,8 @@
 export default theme => ({
   movieCard: {
     position: 'relative',
-    height: 350,
-    width: 800,
+    height: 450,
+    width: 350,
     color: theme.palette.common.white,
     backgroundColor: theme.palette.background.dark,
     borderRadius: 10,
@@ -17,15 +17,19 @@ export default theme => ({
     width: '100%',
     height: '100%',
     backgroundBlendMode: 'multiply',
-    background: 'linear-gradient(to right, #0d0d0c 50%, transparent 100%)',
+    background: 'linear-gradient(to top, #0d0d0c 20%, transparent 100%)',
     zIndex: 2,
-    borderRadius: 10
+    borderRadius: 10,
+    display: 'flex',
+    flexDirection: 'column',  // This will make the text stack below the image
+    justifyContent: 'flex-start',  // Align text to the top
+    padding: theme.spacing(2),  // Add some padding to the text section
   },
   movieHeader: {
     position: 'relative',
-    padding: theme.spacing(3),
-    height: '40%',
-    width: '60%'
+    width: '100%',  // Take full width for the text section
+    padding: theme.spacing(2),
+    marginTop: 'auto',  // Ensures text is at the bottom of the container
   },
   movieTitle: {
     fontSize: '25px',
@@ -49,32 +53,6 @@ export default theme => ({
     color: '#cee4fd',
     marginLeft: theme.spacing(2)
   },
-  description: {
-    padding: theme.spacing(3),
-    height: '50%',
-    width: '50%'
-  },
-  descriptionText: {
-    color: '#cfd6e1'
-  },
-  footer: {
-    height: '10%',
-    paddingLeft: theme.spacing(2),
-    paddingBottom: theme.spacing(3)
-  },
-  icons: {
-    display: 'inline-block',
-    cursor: 'pointer',
-    color: 'rgba(255, 255, 255, 0.4)',
-    margin: theme.spacing(0, 1),
-    transition: 'all 0.3s',
-    '&:hover': {
-      color: 'rgba(255, 255, 255, 0.8)',
-      transform: 'scale(1.25)',
-      transition: 'all 0.3s',
-      transitionDelay: '0.15s'
-    }
-  },
   blurBackground: {
     position: 'absolute',
     top: 0,
@@ -83,16 +61,14 @@ export default theme => ({
     right: 0,
     backgroundSize: 'cover !important',
     borderRadius: 11,
-    width: '80%',
-    backgroundPosition: '-100% 10% !important'
+    width: '100%',  // Full width for the background image
+    backgroundPosition: 'center',
   },
-
   [theme.breakpoints.down('sm')]: {
-    fullWidth: { width: '100%' },
     movieCard: {
       width: '90%',
       margin: '0 auto',
-      height: 'auto'
+      height: 'auto',
     },
     blurBackground: {
       width: '100%',
@@ -102,14 +78,5 @@ export default theme => ({
       width: '100%',
       marginTop: theme.spacing(3)
     },
-    description: {
-      width: '100%'
-    },
-    infoSection: {
-      background:
-        'linear-gradient(to top, rgb(20, 20, 19) 50%, transparent 100%)',
-      zIndex: 2,
-      borderRadius: 10
-    }
   }
 });

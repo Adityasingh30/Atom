@@ -22,12 +22,12 @@ const MovieCard = props => {
               color="inherit">
               {movie.title}
             </Typography>
-            <Typography
+          {/*  <Typography
               className={classes.director}
               variant="h4"
               color="inherit">
               By: {movie.director}
-            </Typography>
+            </Typography>*/}
             <Typography
               className={classes.duration}
               variant="body1"
@@ -42,25 +42,14 @@ const MovieCard = props => {
             </Typography>
           </header>
 
-          <div className={classes.description}>
+         {/* <div className={classes.description}>
             <Typography
               className={classes.descriptionText}
               variant="body1"
               color="inherit">
               {textTruncate(movie.description, 250)}
             </Typography>
-          </div>
-          {/* <div className={classes.footer}>
-            <div className={classes.icons}>
-              <ShareIcon fontSize="small" />
-            </div>
-            <div className={classes.icons}>
-              <FavoriteIcon fontSize="small" />
-            </div>
-            <div className={classes.icons}>
-              <CaledarIcon fontSize="small" />
-            </div>
-          </div> */}
+          </div>*/}
         </div>
         <div
           className={classes.blurBackground}

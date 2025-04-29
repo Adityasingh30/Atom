@@ -1,3 +1,4 @@
+// Import Slider and Arrow Icons from Material UI
 import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -5,6 +6,10 @@ import { withStyles, Box, Grid, Typography, Fade, Grow } from '@material-ui/core
 import { getMovies, getShowtimes, getMovieSuggestion } from '../../../store/actions';
 import MovieCarousel from '../components/MovieCarousel/MovieCarousel';
 import MovieBanner from '../components/MovieBanner/MovieBanner';
+import Slider from 'react-slick'; // Import the Slider component
+import { ArrowBackIos, ArrowForwardIos } from '@material-ui/icons';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import styles from './styles';
 
 class HomePage extends Component {
@@ -41,16 +46,35 @@ class HomePage extends Component {
       suggested
     } = this.props;
 
+    const settings = {
+      centerMode: true,
+      centerPadding: '15%',
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      swipeToSlide: true,
+      nextArrow: <ArrowForwardIos color="inherit" fontSize="large" />,
+      prevArrow: <ArrowBackIos color="inherit" fontSize="large" />,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      pauseOnHover: true,
+    };
+
     return (
       <Grow in timeout={800}>
         <Fragment>
-          {/* Movie Banner */}
+          {/* Movie Banner Slider */}
           <Fade in timeout={1000}>
-            <Box>
-              <MovieBanner movie={randomMovie} height="100vh" />
-            </Box>
+          <Box className={`${classes.bannerSlider} slick-custom`}>
+          <Slider {...settings}>
+          {nowShowing.map((movie) => (
+          <div key={movie._id}>
+          <MovieBanner movie={movie}  />
+          </div>
+          ))}
+          </Slider>
+          </Box>
           </Fade>
-
           {/* Spacer */}
           <Box mt={0} />
 
@@ -63,7 +87,7 @@ class HomePage extends Component {
             {suggested?.length ? (
               <MovieCarousel
                 carouselClass={classes.carousel}
-                title='Suggested for You'
+                title="Suggested for You"
                 movies={suggested}
                 autoplay
               />
@@ -93,7 +117,7 @@ class HomePage extends Component {
           {/* Coming Soon Section */}
           <Box py={5} bgcolor="#d5dbdb">
             <Typography variant="h4" align="center" gutterBottom>
-             
+              
             </Typography>
             <MovieCarousel
               carouselClass={classes.carousel}
@@ -134,7 +158,6 @@ class HomePage extends Component {
                 xs={12}
                 md={5}
                 style={{
-                 // background: '#010025',
                   backgroundImage: 'url(https://images.unsplash.com/photo-1745232997474-3a066feac313?q=80&w=2060&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)',
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',

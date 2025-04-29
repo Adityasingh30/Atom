@@ -5,20 +5,20 @@ import { GitHub, LinkedIn } from '@material-ui/icons';
 
 const teamMembers = [
   {
-    name: 'Aditya Pratap Singh',
-    rollno: '21ESKIT007',
-    skills: 'Frontend, UI/UX, React, MERN',
-    photo: 'https://i.imgur.com/HqWVzd7.jpeg',
-    github: '#',
-    linkedin: '#'
-  },
-  {
     name: 'Aman Jain',
     rollno: '21ESKIT013',
     skills: 'Backend, Express.js, JWT, API Security',
     photo: 'https://i.imgur.com/0sZBEfQ.jpeg',
     github: '#',
     linkedin: '#'
+  },
+  {
+    name: 'Aditya Pratap Singh',
+    rollno: '21ESKIT007',
+    skills: 'Frontend, UI/UX, React, MERN',
+    photo: 'https://i.imgur.com/HqWVzd7.jpeg',
+    github: 'https://github.com/Adityasingh30',
+    linkedin: 'https://www.linkedin.com/in/aditya-pratap-singh-79700024a/'
   },
   {
     name: 'Ayush Jhawar',
@@ -32,7 +32,7 @@ const teamMembers = [
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(4),
+    padding: theme.spacing(11),
     backgroundColor: '#1A1A2E',
     minHeight: '100vh',
     color: '#fff',
@@ -82,8 +82,17 @@ const AboutUs = () => {
 
   return (
     <Box className={classes.root}>
-      <Typography variant="h3" align="center" gutterBottom style={{ fontWeight: 'bold' }}>
-        Meet the Team Behind Atomic
+      <Typography
+      variant="h2"
+      align="center"
+      gutterBottom
+      style={{
+      fontWeight: 900,             
+      fontFamily: 'Georgia, serif',
+      color: '#fff'
+  }}
+>
+        Meet the Team 
       </Typography>
       <Divider style={{ backgroundColor: '#00BFFF', marginBottom: '2rem' }} />
 
@@ -94,7 +103,7 @@ const AboutUs = () => {
               <Avatar src={member.photo} alt={member.name} className={classes.avatar} />
               <CardContent>
                 <Typography variant="h6" style={{ fontWeight: 600 }}>{member.name}</Typography>
-                <Typography variant="subtitle2" style={{ color: '#ccc' }}>{member.rollno}</Typography>
+                <Typography variant="subtitle2" style={{ color: '#000' }}>{member.rollno}</Typography>
                 <Typography variant="body2" style={{ marginTop: 10 }}>{member.skills}</Typography>
                 <div className={classes.icons}>
                   <Link href={member.github} target="_blank" rel="noopener">
@@ -126,7 +135,7 @@ const AboutUs = () => {
           We built this project as part of our final year major project, aiming to deliver a product that showcases both technical skill and user empathy.
         </Typography>
         <Typography variant="body2" style={{ marginTop: 10 }}>
-          <em>Major Project | Class of 2025 | Department of IT</em>
+          <em>Major Project  | Department of IT</em>
         </Typography>
       </Box>
     </Box>

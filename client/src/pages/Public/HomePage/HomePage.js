@@ -65,6 +65,7 @@ class HomePage extends Component {
                 carouselClass={classes.carousel}
                 title='Suggested for You'
                 movies={suggested}
+                autoplay
               />
             ) : (
               <Box textAlign="center" mt={4}>

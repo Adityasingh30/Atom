@@ -4,7 +4,7 @@ export default theme => ({
     top: 0,
     left: 0,
     width: '100%',
-    padding: '1.25rem 20px',
+    padding: '1 rem 20px',
     display: 'flex',
     flexWrap: 'wrap',
     alignItems: 'center',

@@ -73,7 +73,7 @@ function MovieBanner(props) {
             className={classes.duration}
             variant="body1"
             color="inherit">
-            {movie.duration} min
+            ⏱ {movie.duration} min
           </Typography>
           <Typography className={classes.genre} variant="body1" color="inherit">
             {movie.genre}

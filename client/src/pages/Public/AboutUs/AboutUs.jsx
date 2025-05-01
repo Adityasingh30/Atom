@@ -32,11 +32,11 @@ const teamMembers = [
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(11),
     backgroundColor: '#1A1A2E',
     minHeight: '100vh',
     color: '#fff',
-    fontFamily: 'Poppins, sans-serif'
+    fontFamily: 'Poppins, sans-serif',
+    padding: theme.spacing(6),
   },
   card: {
     textAlign: 'center',
@@ -66,9 +66,9 @@ const useStyles = makeStyles((theme) => ({
       }
     }
   },
-  footer: {
+  header: {
     marginTop: theme.spacing(6),
-    paddingTop: theme.spacing(4),
+    paddingTop: theme.spacing(6),
     borderTop: '1px solid #444',
     textAlign: 'center',
     color: '#ccc',
@@ -82,45 +82,14 @@ const AboutUs = () => {
 
   return (
     <Box className={classes.root}>
-      <Typography
-      variant="h2"
-      align="center"
-      gutterBottom
-      style={{
-      fontWeight: 900,             
-      fontFamily: 'Georgia, serif',
-      color: '#fff'
-  }}
->
-        Meet the Team 
-      </Typography>
-      <Divider style={{ backgroundColor: '#00BFFF', marginBottom: '2rem' }} />
-
-      <Grid container spacing={4} justifyContent="center">
-        {teamMembers.map((member, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
-            <Card className={classes.card}>
-              <Avatar src={member.photo} alt={member.name} className={classes.avatar} />
-              <CardContent>
-                <Typography variant="h6" style={{ fontWeight: 600 }}>{member.name}</Typography>
-                <Typography variant="subtitle2" style={{ color: '#000' }}>{member.rollno}</Typography>
-                <Typography variant="body2" style={{ marginTop: 10 }}>{member.skills}</Typography>
-                <div className={classes.icons}>
-                  <Link href={member.github} target="_blank" rel="noopener">
-                    <GitHub />
-                  </Link>
-                  <Link href={member.linkedin} target="_blank" rel="noopener">
-                    <LinkedIn />
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-
-      <Box className={classes.footer}>
-        <Typography variant="h5" gutterBottom style={{ fontWeight: 600 }}>
+      
+      {/* About the Project Section */}
+      <Box className={classes.header}>
+        <Typography variant="h2" align="center" gutterBottom style={{
+          fontWeight: 900,
+          fontFamily: 'Georgia, serif',
+          color: '#fff'
+        }}>
           About the Project
         </Typography>
         <Typography variant="body1" paragraph>
@@ -134,10 +103,51 @@ const AboutUs = () => {
         <Typography variant="body1" paragraph>
           We built this project as part of our final year major project, aiming to deliver a product that showcases both technical skill and user empathy.
         </Typography>
-        <Typography variant="body2" style={{ marginTop: 10 }}>
-          <em>Major Project  | Department of IT</em>
-        </Typography>
+
       </Box>
+
+      {/* Meet the Team Section */}
+      <Box mt={10}>
+        <Typography
+          variant="h2"
+          align="center"
+          gutterBottom
+          style={{
+            fontWeight: 900,
+            fontFamily: 'Georgia, serif',
+            color: '#fff'
+          }}
+        >
+          Meet the Team
+        </Typography>
+        <Divider style={{ backgroundColor: '#00BFFF', marginBottom: '2rem' }} />
+
+        <Grid container spacing={4} justifyContent="center">
+          {teamMembers.map((member, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <Card className={classes.card}>
+                <Avatar src={member.photo} alt={member.name} className={classes.avatar} />
+                <CardContent>
+                  <Typography variant="h3" style={{ fontWeight: 600 }}>{member.name}</Typography>
+                  <Typography variant="subtitle1" style={{ color: '#000' }}>{member.rollno}</Typography>
+                  <Typography variant="body1" style={{ marginTop: 10 }}>{member.skills}</Typography>
+                  <div className={classes.icons}>
+                    <Link href={member.github} target="_blank" rel="noopener">
+                      <GitHub />
+                    </Link>
+                    <Link href={member.linkedin} target="_blank" rel="noopener">
+                      <LinkedIn />
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+      <Typography variant="body1" style={{ marginTop: 10, textAlign:'center' }}>
+          <em>Major Project | Department of IT</em>
+        </Typography>
     </Box>
   );
 };

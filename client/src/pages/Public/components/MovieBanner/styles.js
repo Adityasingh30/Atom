@@ -46,11 +46,12 @@ blurBackground: {
     borderRadius: 25
   },
   movieTitle: {
-    maxWidth: '60%',
-    fontSize: '32px',
+    fontSize: '2.5rem',
+    fontWeight: 600,
     lineHeight: 1.2,
-    fontWeight: 400,
-    textTransform: 'capitalize'
+    color: '#fff',
+    textShadow: '1px 1px 4px rgba(0,0,0,0.7)',
+    marginBottom: theme.spacing(2),
   },
   director: {
     color: '#9ac7fa',
@@ -131,5 +132,29 @@ blurBackground: {
       left: theme.spacing(1),
       bottom: theme.spacing(12)
     }
-  }
+  },
+  button: {
+    width: 200,
+    height: 60,
+    backgroundColor: '#CF0F47',
+    color: '#FFFFFF',
+    fontSize: '1rem',
+    fontWeight: 600,
+    letterSpacing: '0.5px',
+    borderRadius: '8px',
+    boxShadow: '0px 4px 15px rgba(207, 15, 71, 0.4)',
+    transition: 'all 0.3s ease-in-out',
+    position: 'relative',
+    overflow: 'hidden',
+    zIndex: 2,
+    '&:hover': {
+      backgroundColor: '#a10c38',
+      transform: 'scale(1.05)',
+      boxShadow: '0px 6px 20px rgba(207, 15, 71, 0.6)',
+    },
+    '&:focus': {
+      outline: 'none',
+    },
+  },
+  
 });

@@ -9,27 +9,40 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(10, 2),
     backgroundColor: '#1976d2', // dark blue-gray
     minHeight: '100vh',
-    color: '#E2E8F0' // light gray text
+    color: '#E2E8F0', // light gray text
   },
   title: {
-    fontSize: '2.8rem',
-    fontWeight: 600,
-    fontFamily: 'Georgia, serif',
-    lineHeight: '3.2rem',
+    fontSize: '3.2rem',
+    fontWeight: 700,
+    fontFamily: `'Playfair Display', Georgia, serif`,
+    lineHeight: '3.6rem',
     textAlign: 'center',
     marginBottom: theme.spacing(6),
-    color: '#fff' // cyan-400
-  },
+    color: '#fff', // Brighter cyan
+    letterSpacing: '1px',
+    textShadow: '0 2px 4px rgba(0,0,0,0.6)',
+  }
+  ,
   gridContainer: {
     paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(4)
+    paddingBottom: theme.spacing(4),
+  },
+  cinemaCard: {
+    borderRadius: '15px', // Rounded edges for the CinemaCard
+    overflow: 'hidden', // Ensure no content is cut off
+    boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', // Optional shadow for better card separation
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      transform: 'scale(1.05)', // Slight zoom effect on hover
+    }
   },
   noCinemas: {
     textAlign: 'center',
     color: '#94A3B8',
-    marginTop: theme.spacing(5)
-  }
+    marginTop: theme.spacing(5),
+  },
 }));
+
 
 function CinemasPage(props) {
   const classes = useStyles();
@@ -42,17 +55,20 @@ function CinemasPage(props) {
   return (
     <Container maxWidth="xl" className={classes.root}>
       <Typography className={classes.title} variant="h2">
-        Our Cinemas
+        Cinemas
       </Typography>
 
       {cinemas.length > 0 ? (
         <Grid container spacing={4} className={classes.gridContainer} justifyContent="center">
-          {cinemas.map(cinema => (
-            <Grid key={cinema._id} item xs={12} sm={6} md={4} lg={3}>
+        {cinemas.map(cinema => (
+          <Grid key={cinema._id} item xs={12} sm={6} md={4} lg={3}>
+            <div className={classes.cinemaCard}>
               <CinemaCard cinema={cinema} />
-            </Grid>
-          ))}
-        </Grid>
+            </div>
+          </Grid>
+        ))}
+      </Grid>
+      
       ) : (
         <Typography variant="h6" className={classes.noCinemas}>
           No cinemas available at the moment. Please check back later.

@@ -1,103 +1,109 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/styles';
-import { Grid, Typography } from '@material-ui/core';
-const useStyles = makeStyles(theme => ({
-  movieInfos: {
-    background: 'rgba(57, 61, 67, 0.5)',
+import { makeStyles } from '@material-ui/core/styles';
+import { Grid, Typography, Box } from '@material-ui/core';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
     position: 'relative',
-    height: '100%'
+    height: '100%',
+    width: '50%',
+    minHeight: '60vh',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    overflow: 'hidden',
+    borderRadius: 12,
   },
   background: {
     position: 'absolute',
-    opacity: 0.4,
     top: 0,
-    height: '70%',
-    right: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
+    opacity: 0.4,
+    zIndex: 1,
+  },
+  overlay: {
+    position: 'absolute',
     width: '100%',
-    zIndex: 1
+    height: '100%',
+    background: 'linear-gradient(to bottom, rgba(10,10,10,0.4), rgba(10,10,10,0.9))',
+    zIndex: 2,
+  },
+  content: {
+    position: 'relative',
+    zIndex: 3,
+    padding: theme.spacing(4),
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    color: theme.palette.common.white,
   },
   title: {
-    position: 'absolute',
-    top: '60%',
-    right: 0,
-    width: '100%',
-    textAlign: 'center',
-    color: theme.palette.common.white,
-    fontSize: '24px',
+    fontSize: '2rem',
+    fontWeight: 'bold',
     textTransform: 'capitalize',
-    zIndex: 2
-  },
-  info: {
-    position: 'absolute',
-    padding: theme.spacing(5),
-    top: '70%',
-    right: 0,
-    width: '100%'
+    marginBottom: theme.spacing(2),
+    textAlign: 'center',
   },
   infoBox: {
-    color: theme.palette.common.white,
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(1),
   },
-  [theme.breakpoints.down('md')]: {
-    movieInfos: { minHeight: '30vh' },
-    background: { height: '100%' },
-    title: { top: '80%' },
-    info: { display: 'none' }
-  }
+  label: {
+    fontWeight: 600,
+  },
+  [theme.breakpoints.down('sm')]: {
+    root: {
+      minHeight: '40vh',
+    },
+    title: {
+      fontSize: '1.5rem',
+    },
+    content: {
+      padding: theme.spacing(2),
+    },
+  },
 }));
 
-export default function MovieInfo(props) {
-  const classes = useStyles(props);
-  const { movie } = props;
+export default function MovieInfo({ movie }) {
+  const classes = useStyles();
 
-  if (!movie) return <h1>Movie Loading...</h1>;
+  if (!movie) return <Typography variant="h5" align="center">Loading movie info...</Typography>;
 
   return (
-    <Grid item xs={12} md={12} lg={3}>
-      <div className={classes.movieInfos}>
-        <div
+    <Grid item xs={12}>
+      <Box className={classes.root}>
+        <Box
           className={classes.background}
-          style={{
-            backgroundImage: `url(${movie.image})`
-          }}
+          style={{ backgroundImage: `url(${movie.image})` }}
         />
-        <Typography className={classes.title}>{movie.title}</Typography>
-        <div className={classes.info}>
+        <Box className={classes.overlay} />
+        <Box className={classes.content}>
+          <Typography className={classes.title}>{movie.title || 'Untitled Movie'}</Typography>
+
           {movie.director && (
             <div className={classes.infoBox}>
-              <Typography variant="subtitle1" color="inherit">
-                Director
-              </Typography>
-              <Typography variant="caption" color="inherit">
-                {movie.director}
-              </Typography>
+              <Typography className={classes.label} variant="subtitle2">Director:</Typography>
+              <Typography variant="body2">{movie.director}</Typography>
             </div>
           )}
+
           {movie.cast && (
             <div className={classes.infoBox}>
-              <Typography variant="subtitle1" color="inherit">
-                Cast
-              </Typography>
-              <Typography variant="caption" color="inherit">
-                {movie.cast}
-              </Typography>
+              <Typography className={classes.label} variant="subtitle2">Cast:</Typography>
+              <Typography variant="body2">{movie.cast}</Typography>
             </div>
           )}
+
           {movie.genre && (
             <div className={classes.infoBox}>
-              <Typography variant="subtitle1" color="inherit">
-                Genre
-              </Typography>
-              <Typography variant="caption" color="inherit">
-                {movie.genre}
-              </Typography>
+              <Typography className={classes.label} variant="subtitle2">Genre:</Typography>
+              <Typography variant="body2">{movie.genre}</Typography>
             </div>
           )}
-        </div>
-      </div>
+        </Box>
+      </Box>
     </Grid>
   );
 }

@@ -40,16 +40,42 @@ export default (theme) => ({
   },
   bannerSlider: {
     position: 'relative',
-    height: '75vh', // match the height of banner
+    height: '75vh',
     overflow: 'hidden',
     zIndex: 0,
     '& .slick-slide': {
-      padding: '0 15px'
+      padding: '0 15px',
+      transition: 'transform 0.5s ease',
+      '&:hover': {
+        transform: 'scale(1.03)',
+      },
     },
     '& .slick-list': {
-      margin: '0 -10px'
-    }
-  }
+      margin: '0 -10px',
+    },
+    '& .slick-dots': {
+      bottom: theme.spacing(2),
+      '& li': {
+        margin: '0 5px',
+      },
+      '& button:before': {
+        fontSize: '10px',
+        color: theme.palette.common.white,
+        opacity: 0.7,
+      },
+      '& .slick-active button:before': {
+        color: theme.palette.primary.main,
+        opacity: 1,
+      },
+    },
+    '& .slick-prev, & .slick-next': {
+      zIndex: 2,
+      color: theme.palette.common.white,
+      '&:before': {
+        fontSize: '30px',
+      },
+    },
+  },
   
   
 });

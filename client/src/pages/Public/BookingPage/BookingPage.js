@@ -374,60 +374,72 @@ class BookingPage extends Component {
     }
 
     return (
-      <Container maxWidth="xl" className={classes.container}>
-        <Grid container spacing={2} style={{ height: '100%' }}>
+      <Container maxWidth="xl" className={classes.container} style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+  <Grid container spacing={2} direction="column" style={{ flexGrow: 1 }}>
+    
+    {/* Top Row: MovieInfo and BookingForm  */}
+    <Grid item>
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={7}>
           <MovieInfo movie={movie} />
-          <Grid item lg={9} xs={12} md={12}>
-            <BookingForm
-              cinemas={uniqueCinemas}
-              times={uniqueTimes}
-              showtimes={showtimes}
-              selectedCinema={selectedCinema}
-              selectedDate={selectedDate}
-              selectedTime={selectedTime}
-              onChangeCinema={this.onChangeCinema}
-              onChangeDate={this.onChangeDate}
-              onChangeTime={this.onChangeTime}
-            />
-            {showInvitation && !!selectedSeats.length && (
-              <BookingInvitation
-                selectedSeats={selectedSeats}
-                sendInvitations={this.sendInvitations}
-                ignore={resetCheckout}
-                invitations={invitations}
-                onSetInvitation={setInvitation}
-                onDownloadPDF={this.jsPdfGenerator}
-              />
-            )}
-
-            {cinema && selectedCinema && selectedTime && !showInvitation && (
-              <>
-                <BookingSeats
-                  seats={seats}
-                  onSelectSeat={(indexRow, index) =>
-                    this.onSelectSeat(indexRow, index)
-                  }
-                />
-                <BookingCheckout
-                  user={user}
-                  ticketPrice={cinema.ticketPrice}
-                  seatsAvailable={cinema.seatsAvailable}
-                  selectedSeats={selectedSeats.length}
-                  onBookSeats={() => this.checkout()}
-                />
-              </>
-            )}
-          </Grid>
         </Grid>
-        <ResponsiveDialog
-          id="Edit-cinema"
-          open={showLoginPopup}
-          handleClose={() => toggleLoginPopup()}
-          maxWidth="sm">
-          <LoginForm />
-        </ResponsiveDialog>
-      </Container>
+        <Grid item xs={12} md={5}>
+          <BookingForm
+            cinemas={uniqueCinemas}
+            times={uniqueTimes}
+            showtimes={showtimes}
+            selectedCinema={selectedCinema}
+            selectedDate={selectedDate}
+            selectedTime={selectedTime}
+            onChangeCinema={this.onChangeCinema}
+            onChangeDate={this.onChangeDate}
+            onChangeTime={this.onChangeTime}
+          />
+
+          {showInvitation && !!selectedSeats.length && (
+            <BookingInvitation
+              selectedSeats={selectedSeats}
+              sendInvitations={this.sendInvitations}
+              ignore={resetCheckout}
+              invitations={invitations}
+              onSetInvitation={setInvitation}
+              onDownloadPDF={this.jsPdfGenerator}
+            />
+          )}
+        </Grid>
+      </Grid>
+    </Grid>
+
+    {/* Bottom Section: BookingSeats and Checkout */}
+    {cinema && selectedCinema && selectedTime && !showInvitation && (
+      <Grid item>
+        <BookingSeats
+          seats={seats}
+          onSelectSeat={(indexRow, index) => this.onSelectSeat(indexRow, index)}
+        />
+        <BookingCheckout
+          user={user}
+          ticketPrice={cinema.ticketPrice}
+          seatsAvailable={cinema.seatsAvailable}
+          selectedSeats={selectedSeats.length}
+          onBookSeats={() => this.checkout()}
+        />
+      </Grid>
+    )}
+  </Grid>
+
+  <ResponsiveDialog
+    id="Edit-cinema"
+    open={showLoginPopup}
+    handleClose={() => toggleLoginPopup()}
+    maxWidth="sm"
+  >
+    <LoginForm />
+  </ResponsiveDialog>
+</Container>
+
     );
+    
   }
 }
 

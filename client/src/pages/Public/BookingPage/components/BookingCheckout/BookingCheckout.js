@@ -57,7 +57,7 @@ export default function BookingCheckout(props) {
             <Grid item>
               <Typography className={classes.bannerTitle}>Price</Typography>
               <Typography className={classes.bannerContent}>
-              \u20B9{ticketPrice * selectedSeats}
+              ₹{ticketPrice * selectedSeats}
 
               </Typography>
             </Grid>

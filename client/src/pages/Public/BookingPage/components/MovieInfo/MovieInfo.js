@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative',
     height: '100%',
-    width: '50%',
+    width: '80%',
     minHeight: '60vh',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     overflow: 'hidden',
@@ -15,8 +15,8 @@ const useStyles = makeStyles((theme) => ({
   background: {
     position: 'absolute',
     top: 0,
-    left: 0,
-    width: '100%',
+    right: 0,
+    width: '60%',
     height: '100%',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -25,9 +25,11 @@ const useStyles = makeStyles((theme) => ({
   },
   overlay: {
     position: 'absolute',
-    width: '100%',
+    width: '40%',
     height: '100%',
-    background: 'linear-gradient(to bottom, rgba(10,10,10,0.4), rgba(10,10,10,0.9))',
+    background:
+      'linear-gradient(to right, rgba(0,0,0,.9) 75%, transparent 100%)',
+    //background: 'linear-gradient(to bottom, rgba(10,10,10,0.4), rgba(10,10,10,0.9))',
     zIndex: 2,
   },
   content: {

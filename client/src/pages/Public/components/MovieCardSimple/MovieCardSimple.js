@@ -20,7 +20,8 @@ const useStyles = makeStyles(theme => ({
     height: 300
   },
   h5: {
-    textTransform: 'capitalize'
+    textTransform: 'capitalize',
+    color: 'black'
   }
 }));
 

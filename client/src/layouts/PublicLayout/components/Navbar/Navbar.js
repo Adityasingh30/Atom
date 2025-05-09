@@ -34,7 +34,7 @@ class Navbar extends Component {
         <nav
           className={classnames({
             [classes.navbar]: true,
-            [classes.navbarColor]: scrollPos > 30
+           // [classes.navbarColor]: scrollPos > 30
           })}>
           <Link className={classes.logoLink} to="/">
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -59,6 +59,9 @@ class Navbar extends Component {
             </Link>
             <Link className={classes.navLink} to="/cinemas">
               Cinemas
+            </Link>
+            <Link className={classes.navLink} to="/Public/AboutUs">
+              About Us
             </Link>
           </div>
 
@@ -148,6 +151,11 @@ class Navbar extends Component {
               <li className={classes.innerNavListItem}>
                 <Link className={classes.innerNavLink} to="/cinemas">
                   Cinemas
+                </Link>
+              </li>
+              <li className={classes.innerNavListItem}>
+                <Link className={classes.innerNavLink} to="/Public/AboutUs">
+                  About Us
                 </Link>
               </li>
             </ul>

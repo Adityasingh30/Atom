@@ -17,12 +17,15 @@ transporter.sendEMail = function(mailRequest) {
   return new Promise(function(resolve, reject) {
     transporter.sendMail(mailRequest, (error, info) => {
       if (error) {
+        console.error('Email error:', error);
         reject(error);
       } else {
-        resolve('The message was sent!');
+        console.log('Email info:', info); // log detailed info
+        resolve(info);
       }
     });
   });
 };
+
 
 module.exports = transporter;

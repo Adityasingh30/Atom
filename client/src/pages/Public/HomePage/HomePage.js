@@ -1,14 +1,15 @@
+// Import Slider and Arrow Icons from Material UI
 import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withStyles, Box, Grid } from '@material-ui/core';
-import {
-  getMovies,
-  getShowtimes,
-  getMovieSuggestion
-} from '../../../store/actions';
+import { withStyles, Box, Grid, Typography, Fade, Grow } from '@material-ui/core';
+import { getMovies, getShowtimes, getMovieSuggestion } from '../../../store/actions';
 import MovieCarousel from '../components/MovieCarousel/MovieCarousel';
 import MovieBanner from '../components/MovieBanner/MovieBanner';
+import Slider from 'react-slick'; // Import the Slider component
+import { ArrowBackIos, ArrowForwardIos } from '@material-ui/icons';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import styles from './styles';
 
 class HomePage extends Component {
@@ -22,10 +23,10 @@ class HomePage extends Component {
       getMovieSuggestion,
       user
     } = this.props;
-    if (!movies.length) getMovies();
-    if (!showtimes.length) getShowtimes();
-    if (user) {
-      if (!suggested.length) getMovieSuggestion(user.username);
+    if (!movies?.length) getMovies();
+    if (!showtimes?.length) getShowtimes();
+    if (user?.username && !suggested.length) {
+      getMovieSuggestion(user.username);
     }
   }
 
@@ -44,35 +45,170 @@ class HomePage extends Component {
       nowShowing,
       suggested
     } = this.props;
-    return (
-      <Fragment>
-        <MovieBanner movie={randomMovie} height="85vh" />
-        <Box height={60} />
-        <MovieCarousel
-          carouselClass={classes.carousel}
-          title="Suggested for you"
-          movies={suggested}
-        />
-        <MovieCarousel
-          carouselClass={classes.carousel}
-          title="Now Showing"
-          to="/movie/category/nowShowing"
-          movies={nowShowing}
-        />
-        <MovieCarousel
-          carouselClass={classes.carousel}
-          title="Coming Soon"
-          to="/movie/category/comingSoon"
-          movies={comingSoon}
-        />
 
-        {false && (
-          <Grid container style={{ height: 500 }}>
-            <Grid item xs={7} style={{ background: '#131334' }}></Grid>
-            <Grid item xs={5} style={{ background: '#010025' }}></Grid>
-          </Grid>
-        )}
-      </Fragment>
+    const settings = {
+      centerMode: true,
+      centerPadding: '15%',
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      swipeToSlide: true,
+      nextArrow: <ArrowForwardIos color="inherit" fontSize="large" />,
+      prevArrow: <ArrowBackIos color="inherit" fontSize="large" />,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      pauseOnHover: true,
+    };
+
+    return (
+      <Grow in timeout={800}>
+        <Fragment>
+          {/* Movie Banner Slider */}
+          <Fade in timeout={1000}>
+          <Box className={`${classes.bannerSlider} slick-custom`}>
+          <Slider {...settings}>
+          {nowShowing.map((movie) => (
+          <div key={movie._id}>
+          <MovieBanner movie={movie}  />
+          </div>
+          ))}
+          </Slider>
+          </Box>
+          </Fade>
+          {/* Spacer */}
+          <Box mt={0} />
+
+          {/* Suggested Movies Section */}
+          <Box py={5} bgcolor="#d5dbdb">
+            <Typography variant="h4" align="center" gutterBottom>
+              
+            </Typography>
+
+            {suggested?.length ? (
+              <MovieCarousel
+                carouselClass={classes.carousel}
+                title="Suggested for You"
+                movies={suggested}
+                autoplay
+              />
+            ) : (
+              <Box textAlign="center" mt={4}>
+                <Typography variant="subtitle1" color="textSecondary">
+                  No suggestions yet. Watch more movies to get personalized recommendations!
+                </Typography>
+              </Box>
+            )}
+          </Box>
+
+          {/* Now Showing Section */}
+          <Box py={5}>
+            <Typography variant="h4" align="center" gutterBottom>
+              
+            </Typography>
+            <MovieCarousel
+              carouselClass={classes.carousel}
+              title="Now Showing"
+              to="/movie/category/nowShowing"
+              movies={nowShowing}
+              autoplay
+            />
+          </Box>
+
+          {/* Coming Soon Section */}
+          <Box py={5} bgcolor="#d5dbdb">
+            <Typography variant="h4" align="center" gutterBottom>
+              
+            </Typography>
+            <MovieCarousel
+              carouselClass={classes.carousel}
+              title="Coming Soon"
+              to="/movie/category/comingSoon"
+              movies={comingSoon}
+              autoplay
+            />
+          </Box>
+
+          {/* Feature Grid Section */}
+          <Box
+  position="relative"
+  py={10}
+  px={3}
+  style={{
+    backgroundImage:
+      'url(https://plus.unsplash.com/premium_photo-1709594070896-fc3869d4dcd6?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    color: '#fff',
+    minHeight: 500,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 16,
+    overflow: 'hidden',
+    textShadow: '2px 2px 4px rgba(0,0,0,0.6)'
+  }}
+>
+  <Box
+    position="absolute"
+    top={0}
+    left={0}
+    width="100%"
+    height="100%"
+    style={{
+      background: 'rgba(0, 0, 0, 0.6)',
+      zIndex: 1,
+    }}
+  />
+
+  <Box position="relative" zIndex={2} textAlign="center" maxWidth={700} px={2}>
+  <Typography
+  variant="h2"
+  gutterBottom
+  style={{
+    fontFamily: `'Cinzel', serif`, // Cinematic serif font
+    fontWeight: 700,
+    letterSpacing: 2,
+    textTransform: 'uppercase',
+    textShadow: '2px 3px 6px rgba(0,0,0,0.7)',
+  }}
+>
+  Step Into the World of Cinematic Magic
+</Typography>
+
+<Typography
+  variant="h4"
+  gutterBottom
+  style={{
+    fontFamily: `'Open Sans', sans-serif`,
+    fontWeight: 400,
+    letterSpacing: 1,
+    color: '#f4d03f', // Highlighted subtitle
+    textShadow: '1px 2px 4px rgba(0,0,0,0.6)',
+  }}
+>
+  Book your movie tickets for the latest blockbusters and upcoming hits—right at your nearest cinema.
+</Typography>
+
+<Typography
+  variant="body1"
+  style={{
+    fontFamily: `'Roboto', sans-serif`,
+    lineHeight: 1.8,
+    fontSize: '1.1rem',
+    maxWidth: 650,
+    margin: '0 auto',
+    textShadow: '1px 1px 3px rgba(0,0,0,0.5)',
+  }}
+>
+  Atomic connects you to the best theaters around, offering a seamless booking experience,
+  real-time showtimes, and instant confirmations. Don’t miss your next big-screen adventure—reserve your seat now!
+</Typography>
+
+  </Box>
+</Box>
+
+        </Fragment>
+      </Grow>
     );
   }
 }
@@ -82,7 +218,7 @@ HomePage.propTypes = {
   classes: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   movies: PropTypes.array.isRequired,
-  latestMovies: PropTypes.array.isRequired
+  latestMovies: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = ({ movieState, showtimeState, authState }) => ({
@@ -93,7 +229,7 @@ const mapStateToProps = ({ movieState, showtimeState, authState }) => ({
   nowShowing: movieState.nowShowing,
   showtimes: showtimeState.showtimes,
   suggested: movieState.suggested,
-  user: authState.user
+  user: authState.user,
 });
 
 const mapDispatchToProps = { getMovies, getShowtimes, getMovieSuggestion };

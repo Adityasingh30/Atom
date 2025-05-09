@@ -35,12 +35,12 @@ const BestMovies = props => {
     labels: bestMovies.map(movie => movie.movie.title.toUpperCase()),
     datasets: [
       {
-        label: 'This year',
+        label: 'This Week',
         backgroundColor: palette.primary.main,
         data: bestMovies.map(movie => movie.count)
       },
       {
-        label: 'Last year',
+        label: 'Last Week',
         backgroundColor: palette.neutral,
         data: [11, 20, 12, 29, 30]
       }

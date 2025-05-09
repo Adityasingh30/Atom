@@ -53,8 +53,8 @@ export default {
   },
   background: {
     paper: 'rgb(203, 217, 226)', // Clean white for paper
-    default: 'rgb(95, 59, 145)',  // Very light gray background for a modern feel
-    dark: 'rgb(95, 59, 145)',  // Light gray for dark mode
+    default: 'rgb(25,118,210)',  // Very light gray background for a modern feel
+    dark: 'rgb(25,118,210)',  // Light gray for dark mode
   },
   border: '#E0E0E0',  // Lighter border for a soft look
   divider: '#E0E0E0',  // Subtle divider

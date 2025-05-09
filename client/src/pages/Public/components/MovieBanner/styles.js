@@ -1,21 +1,27 @@
+import color from "@material-ui/core/colors/amber";
+
 export default theme => ({
   movieHero: {
     position: 'relative',
-    height: props => (props.height ? props.height : '100%'),
+    height: '75vh', // for full-screen banner
     width: '100%',
+    zIndex: 0,
     color: theme.palette.common.white,
-    backgroundColor: theme.palette.background.dark
+    backgroundColor: theme.palette.background.dark,
+    paddingTop: theme.spacing(8) // match your header height
   },
-  blurBackground: {
-    position: 'absolute',
-    top: 0,
-    zIndex: 1,
-    height: '100%',
-    right: 0,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    width: '100%'
-  },
+blurBackground: {
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  zIndex: 1,
+  height: '100%',
+  width: '80%',
+  backgroundSize: '60% 100%',  // 👈 shows full image
+  backgroundPosition: 'right',
+  backgroundRepeat: 'no-repeat',
+  backgroundColor: theme.palette.background.dark // fill empty areas
+} ,
   infoSection: {
     position: 'relative',
     padding: theme.spacing(3),
@@ -40,11 +46,12 @@ export default theme => ({
     borderRadius: 25
   },
   movieTitle: {
-    maxWidth: '60%',
-    fontSize: '32px',
+    fontSize: '2.5rem',
+    fontWeight: 600,
     lineHeight: 1.2,
-    fontWeight: 400,
-    textTransform: 'capitalize'
+    color: '#fff',
+    textShadow: '1px 1px 4px rgba(0,0,0,0.7)',
+    marginBottom: theme.spacing(2),
   },
   director: {
     color: '#9ac7fa',
@@ -92,6 +99,8 @@ export default theme => ({
   button: {
     width: 200,
     height: 70,
+    backgroundColor: '#CF0F47',
+    color: '#fffff',
     borderRadius: 0,
     zIndex: 2
   },
@@ -123,5 +132,29 @@ export default theme => ({
       left: theme.spacing(1),
       bottom: theme.spacing(12)
     }
-  }
+  },
+  button: {
+    width: 200,
+    height: 60,
+    backgroundColor: '#CF0F47',
+    color: '#FFFFFF',
+    fontSize: '1rem',
+    fontWeight: 600,
+    letterSpacing: '0.5px',
+    borderRadius: '8px',
+    boxShadow: '0px 4px 15px rgba(207, 15, 71, 0.4)',
+    transition: 'all 0.3s ease-in-out',
+    position: 'relative',
+    overflow: 'hidden',
+    zIndex: 2,
+    '&:hover': {
+      backgroundColor: '#a10c38',
+      transform: 'scale(1.05)',
+      boxShadow: '0px 6px 20px rgba(207, 15, 71, 0.6)',
+    },
+    '&:focus': {
+      outline: 'none',
+    },
+  },
+  
 });

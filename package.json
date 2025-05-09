@@ -9,17 +9,13 @@
     "start": "cd server && npm install && npm run start",
     "build": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/georgesimos/Atomic.git"
-  },
   "keywords": [],
   "author": "Aditya Pratap Singh, Aman Jain, Ayush Jhawar",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/georgesimos/Atomic/issues"
+    "url": "https://github.com/AmanJain011/Atomic/issues"
   },
-  "homepage": "https://github.com/georgesimos/Atomic#readme",
+  "homepage": "https://github.com/AmanJain011/Atomic#readme",
   "devDependencies": {
     "eslint": "^6.1.0",
     "eslint-config-airbnb": "^18.0.1",
@@ -36,6 +32,7 @@
   },
   "dependencies": {
     "react-slick": "^0.30.3",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "swiper": "^11.2.6"
   }
 }

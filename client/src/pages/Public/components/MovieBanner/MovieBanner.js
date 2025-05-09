@@ -73,7 +73,7 @@ function MovieBanner(props) {
             className={classes.duration}
             variant="body1"
             color="inherit">
-            {movie.duration} min
+            ⏱ {movie.duration} min
           </Typography>
           <Typography className={classes.genre} variant="body1" color="inherit">
             {movie.genre}
@@ -90,7 +90,7 @@ function MovieBanner(props) {
         {fullDescription ? (
           <Link to={`booking/${movie._id}`} style={{ textDecoration: 'none' }}>
             <Button variant="contained" className={classes.button}>
-              Buy Tickets
+              Buy Ticket
               <ArrowRightAlt className={classes.buttonIcon} />
             </Button>
           </Link>

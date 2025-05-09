@@ -14,7 +14,6 @@ const ShowtimeList = lazy(() => import('./pages/Admin/ShowtimeList'));
 const ReservationList = lazy(() => import('./pages/Admin/ReservationList'));
 const User = lazy(() => import('./pages/Admin/User'));
 const Account = lazy(() => import('./pages/Admin/Account'));
-const AboutUs = lazy(() => import('./pages/Admin/AboutUs'));
 
 // Register - Login
 const Register = lazy(() => import('./pages/Public/Register'));
@@ -29,6 +28,7 @@ const MovieCategoryPage = lazy(() =>
 );
 const CinemasPage = lazy(() => import('./pages/Public/CinemasPage'));
 const BookingPage = lazy(() => import('./pages/Public/BookingPage'));
+const AboutUs = lazy(() => import('./pages/Public/AboutUs'));
 
 const Checkin = lazy(() => import('./pages/Public/Checkin'));
 
@@ -85,6 +85,12 @@ const Routes = () => {
             layoutProps={{ withFooter: false }}
             component={BookingPage}
           />
+          <WithLayoutRoute
+            exact
+            path="/Public/aboutus"
+            layout={PublicLayout}
+            component={AboutUs}  
+        />
           <ProtectedRoute
             exact
             path="/admin/dashboard"
@@ -127,12 +133,7 @@ const Routes = () => {
             layout={AdminLayout}
             component={Account}
           />
-          <ProtectedRoute
-            exact
-            path="/admin/about_us"
-            layout={AdminLayout}
-            component={AboutUs}  
-        />
+          
           <Route path="*" component={() => '404 NOT FOUND'} />
         </Switch>
       </Router>

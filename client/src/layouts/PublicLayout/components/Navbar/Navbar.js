@@ -34,7 +34,7 @@ class Navbar extends Component {
         <nav
           className={classnames({
             [classes.navbar]: true,
-            [classes.navbarColor]: scrollPos > 30
+           // [classes.navbarColor]: scrollPos > 30
           })}>
           <Link className={classes.logoLink} to="/">
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>

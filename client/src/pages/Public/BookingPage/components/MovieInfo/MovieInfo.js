@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     height: '100%',
     width: '80%',
-    minHeight: '60vh',
+    minHeight: '70vh',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     overflow: 'hidden',
     borderRadius: 12,
@@ -43,14 +43,14 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.white,
   },
   title: {
-    fontSize: '2rem',
+    fontSize: '3rem',
     fontWeight: 'bold',
     textTransform: 'capitalize',
     marginBottom: theme.spacing(2),
     textAlign: 'center',
   },
   infoBox: {
-    marginBottom: theme.spacing(1),
+    marginBottom: theme.spacing(3),
   },
   label: {
     fontWeight: 600,
@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
       minHeight: '40vh',
     },
     title: {
-      fontSize: '1.5rem',
+      fontSize: '2rem',
     },
     content: {
       padding: theme.spacing(2),
@@ -102,6 +102,13 @@ export default function MovieInfo({ movie }) {
             <div className={classes.infoBox}>
               <Typography className={classes.label} variant="subtitle2">Genre:</Typography>
               <Typography variant="body2">{movie.genre}</Typography>
+            </div>
+          )}
+
+          {movie.description && (
+            <div className={classes.infoBox}>
+              <Typography className={classes.label} variant="subtitle2">Description:</Typography>
+              <Typography variant="body2">{movie.description}</Typography>
             </div>
           )}
         </Box>

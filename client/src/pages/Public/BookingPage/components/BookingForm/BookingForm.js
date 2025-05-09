@@ -38,21 +38,40 @@ export default function BookingForm(props) {
         height="60vh"
         alignItems="center"
         justifyContent="center"
+        bgcolor="#f5f5f5"
       >
-        <Typography align="center" variant="h4" color="textSecondary">
+        <Typography align="center" variant="h5" color="textSecondary">
           No Cinema Available.
         </Typography>
       </Box>
     );
 
   return (
-    <Box display="flex" justifyContent="center" px={2} mt={4}>
-  <Paper elevation={4} style={{ padding: '2rem', maxWidth: 800, width: '100%' }}>
-    <Typography variant="h5" gutterBottom align="center" color="primary">
-      Book Show
-    </Typography>
+    <Box display="flex" justifyContent="center" px={2} mt={5} mb={5}>
+      <Paper
+        elevation={6}
+        style={{
+          padding: '3rem',
+          maxWidth: 720,
+          width: '100%',
+          borderRadius: '16px',
+          backgroundColor: '#ffffff'
+        }}
+      >
+        <Typography
+          variant="h4"
+          gutterBottom
+          align="center"
+          style={{
+            fontWeight: 600,
+            color: '#3f51b5',
+            marginBottom: '2rem'
+          }}
+        >
+          Book Show
+        </Typography>
 
-    <Grid container spacing={3} direction="column">
+        <Grid container spacing={4} direction="column">
           <Grid item xs={12}>
             <TextField
               fullWidth
@@ -76,8 +95,6 @@ export default function BookingForm(props) {
                 <KeyboardDatePicker
                   inputVariant="outlined"
                   fullWidth
-                  margin="none"
-                  id="start-date"
                   label="Select Date"
                   minDate={new Date(showtime.startDate)}
                   maxDate={new Date(showtime.endDate)}

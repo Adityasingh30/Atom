@@ -5,20 +5,18 @@ Atomic
 MongoDB, Expressjs, React/Redux, Nodejs
 </p>
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react) 
+ [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react) 
 
 Atomic is an online Movie Ticket Booking web app with MERN Stack.
 
   - Online Booking System
   - Admin Dashboard
-  - Dark Theme UI
 
 
 > MERN is a fullstack implementation in MongoDB, Expressjs, React/Redux, Nodejs.
 
 MERN stack is the idea of using Javascript/Node for fullstack web development.
 
-<img src="https://github.com/georgesimos/readme-assets/blob/master/Atomic/mern.png" />
 
 # Features!
 
@@ -57,7 +55,6 @@ create a mongodb database and add your connection string into .env file
 Install the dependencies and devDependencies
 
 ```sh
-$ git clone https://github.com/georgesimos/Movie-app.git
 $ npm install
 $ cd server npm install && npm start
 $ cd client npm install && npm start
@@ -128,36 +125,36 @@ Atomic is currently extended with the following plugins. Instructions on how to 
 # Screenshots! 
 
 Movie Page
-<img src="https://github.com/georgesimos/readme-assets/blob/master/Atomic/movie.png" />
+<img src="https://github.com/AmanJain011/readme-assets/blob/master/Atomic/movie.png" />
 
 <details>
   <summary>More Screenshots</summary>
   Booking Page
-  <img src="https://github.com/georgesimos/readme-assets/blob/master/Atomic/booking.png" />
+  <img src="https://github.com/AmanJain011/readme-assets/blob/master/Atomic/booking.png" />
 
   Booking Invitations
-  <img src="https://github.com/georgesimos/readme-assets/blob/master/Atomic/invitation.png" />
+  <img src="https://github.com/AmanJain011/readme-assets/blob/master/Atomic/invitation.png" />
 
   Guest Dashboard Page
-  <img src="https://github.com/georgesimos/readme-assets/blob/master/Atomic/guest-dashboard.png" />
+  <img src="https://github.com/AmanJain011/readme-assets/blob/master/Atomic/guest-dashboard.png" />
 
   My Account Page
-  <img src="https://github.com/georgesimos/readme-assets/blob/master/Atomic/my-account.png" />
+  <img src="https://github.com/AmanJain011/readme-assets/blob/master/Atomic/my-account.png" />
 
   Admin Home Page
-  <img src="https://github.com/georgesimos/readme-assets/blob/master/Atomic/admin-dashboard.png" />
+  <img src="https://github.com/AmanJain011/readme-assets/blob/master/Atomic/admin-dashboard.png" />
 
   Admin Cinema Page
-  <img src="https://github.com/georgesimos/readme-assets/blob/master/Atomic/admin-cinemas.png" />
+  <img src="https://github.com/AmanJain011/readme-assets/blob/master/Atomic/admin-cinemas.png" />
 
   Admin Movie Page
-  <img src="https://github.com/georgesimos/readme-assets/blob/master/Atomic/admin-movies.png" />
+  <img src="https://github.com/AmanJain011/readme-assets/blob/master/Atomic/admin-movies.png" />
 
   Admin Reservation Page
-  <img src="https://github.com/georgesimos/readme-assets/blob/master/Atomic/reservations.png" />
+  <img src="https://github.com/AmanJain011/readme-assets/blob/master/Atomic/reservations.png" />
 
   Admin Reservation Calendar
-  <img src="https://github.com/georgesimos/readme-assets/blob/master/Atomic/calendar.png" />
+  <img src="https://github.com/AmanJain011/readme-assets/blob/master/Atomic/calendar.png" />
 </details>
 
 

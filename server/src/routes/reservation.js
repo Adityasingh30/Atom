@@ -1,24 +1,29 @@
 const express = require('express');
 const auth = require('../middlewares/auth');
-const Reservation = require('../models/reservation');
+const Reservation = require('../models/Reservation');
 const userModeling = require('../utils/userModeling');
 const generateQR = require('../utils/generateQRCode');
+const QRCode = require('qrcode');
 
 const router = new express.Router();
 
 // Create a reservation
 router.post('/reservations', auth.simple, async (req, res) => {
-  const reservation = new Reservation(req.body);
-
-  const QRCode = await generateQR(`https://elcinema.herokuapp.com/#/checkin/${reservation._id}`);
-
   try {
-    await reservation.save();
-    res.status(201).send({ reservation, QRCode });
+    const reservation = new Reservation(req.body);
+    await reservation.save(); // save FIRST to get _id
+
+    const qrUrl = `http://localhost:8080/invitation/${reservation._id}`;
+    const qrCode = await QRCode.toDataURL(qrUrl);
+
+    res.status(201).send({ reservation, QRCode: qrCode });
+ // use correct QRCode variable
   } catch (e) {
+    console.error('Reservation error:', e);
     res.status(400).send(e);
   }
 });
+
 
 // Get all reservations
 router.get('/reservations', auth.simple, async (req, res) => {

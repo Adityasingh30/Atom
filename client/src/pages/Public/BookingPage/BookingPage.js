@@ -33,10 +33,12 @@ import BookingCheckout from './components/BookingCheckout/BookingCheckout';
 import BookingInvitation from './components/BookingInvitation/BookingInvitation';
 
 import jsPDF from 'jspdf';
+import QRCode from 'qrcode';
+
 
 class BookingPage extends Component {
   didSetSuggestion = false;
-
+   
   componentDidMount() {
     const {
       user,
@@ -66,9 +68,25 @@ class BookingPage extends Component {
   }
 
   // JSpdf Generator For generating the PDF
-  jsPdfGenerator = () => {
-    const { movie, cinema, selectedDate, selectedTime, QRCode } = this.props;
-    const doc = new jsPDF();
+  jsPdfGenerator = async () => {
+  const { movie, cinema, selectedDate, selectedTime, reservations } = this.props;
+
+  // Get the latest reservation ID (you can tweak this logic if needed)
+  const latestReservation = reservations[reservations.length - 1];
+  const reservationId = latestReservation?._id;
+
+  if (!reservationId) {
+    alert("Reservation ID not found. Please try again.");
+    return;
+  }
+
+  const doc = new jsPDF();
+  const qrText = `http://localhost:8080/invitation/${reservationId}`;
+
+
+  try {
+    const qrCodeDataURL = await QRCode.toDataURL(qrText);
+
     doc.setFont('helvetica');
     doc.setFontType('bold');
     doc.setFontSize(22);
@@ -76,15 +94,17 @@ class BookingPage extends Component {
     doc.setFontSize(16);
     doc.text(cinema.name, 20, 30);
     doc.text(
-      `Date: ${new Date(
-        selectedDate
-      ).toLocaleDateString()} - Time: ${selectedTime}`,
+      `Date: ${new Date(selectedDate).toLocaleDateString()} - Time: ${selectedTime}`,
       20,
       40
     );
-    doc.addImage(QRCode, 'JPEG', 15, 40, 160, 160);
+    doc.addImage(qrCodeDataURL, 'PNG', 20, 50, 100, 100);
     doc.save(`${movie.title}-${cinema.name}.pdf`);
-  };
+  } catch (err) {
+    console.error("QR Code generation failed", err);
+  }
+};
+
 
   onSelectSeat = (row, seat) => {
     const { cinema, setSelectedSeats } = this.props;

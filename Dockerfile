@@ -11,18 +11,19 @@ COPY . .
 WORKDIR /app/server
 RUN npm install
 
-# Install client dependencies and build it
+# Install client dependencies and build
 WORKDIR /app/client
 RUN npm install
 RUN npm run build
 
-# Move back to server and copy build output to public (if needed)
-WORKDIR /app/server
-# Optionally: copy build to server/public if server serves static files from there
-# RUN cp -r ../client/build ./public
+# Copy React build to server
+RUN cp -r build ../server/build
 
-# Expose port used by backend
+# Set working directory to server
+WORKDIR /app/server
+
+# Expose backend port
 EXPOSE 8080
 
-# Start the backend
-CMD ["npm", "run", "start"]
+# Start backend
+CMD ["npm", "start"]

@@ -7,10 +7,10 @@ import EventIcon from '@material-ui/icons/Event';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: '100%',
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText
-  },
+  height: '100%',
+  backgroundColor: '#3C3C3C',
+  color: '#fff'
+},
   content: {
     alignItems: 'center',
     display: 'flex'

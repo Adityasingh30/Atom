@@ -1,4 +1,4 @@
-const Reservation = require('../models/reservation');
+const Reservation = require('../models/Reservation');
 const Movie = require('../models/movie');
 const Cinema = require('../models/cinema');
 

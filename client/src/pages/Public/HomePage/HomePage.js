@@ -37,6 +37,23 @@ class HomePage extends Component {
     }
   }
 
+  getRandomMovies = (movies, count = 5) => {
+  const shuffled = [...movies].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+};
+
+getSuggestedMovies = () => {
+  const { suggested, nowShowing, latestMovies } = this.props;
+
+  if (suggested && suggested.length > 0) {
+    return suggested;
+  }
+
+  const fallbackSource = nowShowing.length ? nowShowing : latestMovies;
+  return this.getRandomMovies(fallbackSource, 5);
+};
+
+
   render() {
     const {
       classes,
@@ -67,12 +84,13 @@ class HomePage extends Component {
           <Fade in timeout={1000}>
           <Box className={`${classes.bannerSlider} slick-custom`}>
           <Slider {...settings}>
-          {nowShowing.map((movie) => (
-          <div key={movie._id}>
-          <MovieBanner movie={movie}  />
-          </div>
-          ))}
-          </Slider>
+  {this.getRandomMovies(nowShowing).map((movie) => (
+    <div key={movie._id}>
+      <MovieBanner movie={movie} />
+    </div>
+  ))}
+</Slider>
+
           </Box>
           </Fade>
           {/* Spacer */}
@@ -84,20 +102,13 @@ class HomePage extends Component {
               
             </Typography>
 
-            {suggested?.length ? (
-              <MovieCarousel
-                carouselClass={classes.carousel}
-                title="Suggested for You"
-                movies={suggested}
-                autoplay
-              />
-            ) : (
-              <Box textAlign="center" mt={4}>
-                <Typography variant="subtitle1" color="textSecondary">
-                  No suggestions yet. Watch more movies to get personalized recommendations!
-                </Typography>
-              </Box>
-            )}
+           <MovieCarousel
+  carouselClass={classes.carousel}
+  title="Suggested for You"
+  movies={this.getSuggestedMovies()}
+  autoplay
+/>
+
           </Box>
 
           {/* Now Showing Section */}
